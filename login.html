@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Autono</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link para o seu CSS -->
+    <style>
+        /* Estilos básicos para o layout da página */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #3f77dd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Padrão de fundo com triângulos amarelos */
+        body::before, body::after {
+            content: "";
+            position: absolute;
+            background-color: #fdba3e; /* Amarelo */
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* Triângulo */
+        }
+
+        /* Triângulo superior */
+        body::before {
+            top: 10%;
+            left: -20%;
+            width: 40%;
+            height: 40%;
+            transform: rotate(45deg);
+        }
+
+        /* Triângulo inferior */
+        body::after {
+            top: 60%;
+            left: 20%;
+            width: 25%;
+            height: 25%;
+            transform: rotate(-45deg);
+        }
+
+        /* Estilos para o título principal */
+        h1 {
+            position: absolute;
+            top: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3rem;
+            color: white;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+            z-index: 1; /* Garante que o conteúdo fique acima do fundo */
+        }
+        
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .login-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #fdba3e;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        
+        .login-button:hover {
+            background-color: #ffc038;
+            transform: scale(1.05);
+        }
+        
+        .forgot-password {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .forgot-password a {
+            text-decoration: none;
+            color: #ffc04a;
+        }
+        
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsividade para dispositivos móveis */
+        @media (max-width: 600px) {
+            .login-container {
+                width: 90%;
+                padding: 20px;
+            }
+            
+            .login-button {
+                font-size: 14px;
+                padding: 10px;
+            }
+            
+            .input-field {
+                font-size: 14px;
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Título "Autonomus" no topo -->
+    <h1>Autonomus</h1>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="/login" method="POST">
+            <input type="text" class="input-field" name="username" placeholder="Usuário" required>
+            <input type="password" class="input-field" name="password" placeholder="Senha" required>
+            <button type="submit" class="login-button">Entrar</button>
+        </form>
+        
+        <div class="forgot-password">
+            <a href="/esqueci-senha">Esqueci minha senha</a>
+        </div>
+    </div>
+
+</body>
+</html>
