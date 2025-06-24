@@ -8,14 +8,22 @@
         body {
             font-family: Arial, sans-serif;
             display: flex;
-            justify-content: center;
+            flex-direction: column; /* Changed to column to accommodate header and footer */
+            justify-content: space-between; /* Distribute space between header, content, and footer */
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            /* Adicionando o gradiente linear para o fundo de duas cores */
-            background: linear-gradient(to bottom, #FFFFFF 50%, #2796d6 50%); /* Branco em cima, Azul claro embaixo */
-            /* Se preferir um azul mais escuro como na imagem, pode usar #6DA5DE ou #4682B4 */
-            /* Exemplo com azul mais próximo da imagem: background: linear-gradient(to bottom, #FFFFFF 50%, #6DA5DE 50%); */
+            background: linear-gradient(to bottom, #FFFFFF 50%, #2796d6 50%);
+        }
+        header {
+            width: 100%;
+            background-color: #f8f8f8; /* Light background for the header */
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            font-size: 1.8em;
+            color: #333;
+            font-weight: bold;
         }
         .container {
             background-color: #ffffff;
@@ -23,8 +31,14 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
-            z-index: 1; /* Garante que o container fique acima do fundo */
-            position: relative; /* Necessário para z-index funcionar */
+            z-index: 1;
+            position: relative;
+            flex-grow: 1; /* Allows the container to take up available space */
+            display: flex; /* Use flexbox for inner alignment */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0; /* Add some vertical margin */
         }
         h1 {
             color: #333;
@@ -38,7 +52,7 @@
             flex-wrap: wrap;
         }
         .option-box {
-            background-color: #ff9900; /* Cor laranja similar à imagem */
+            background-color: #ff9900;
             color: white;
             padding: 50px;
             border-radius: 10px;
@@ -52,7 +66,7 @@
             justify-content: center;
         }
         .option-box:hover {
-            background-color: #e68a00; /* Laranja um pouco mais escuro no hover */
+            background-color: #e68a00;
         }
         .option-box img {
             width: 120px;
@@ -66,9 +80,22 @@
             margin: 0;
             line-height: 1.3;
         }
+        footer {
+            width: 100%;
+            background-color: #333; /* Dark background for the footer */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.9em;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+        }
     </style>
 </head>
 <body>
+    <header>
+        AUTONOMUS
+    </header>
+
     <div class="container">
         <h1>Escolha seu Perfil de Login</h1>
         <div class="options">
@@ -82,5 +109,9 @@
             </a>
         </div>
     </div>
+
+    <footer>
+        &copy; 2025 Sua Empresa. Todos os direitos reservados.
+    </footer>
 </body>
 </html>
