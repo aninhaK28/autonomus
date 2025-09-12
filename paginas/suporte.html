@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suporte Online - Reclamações</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .chat-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            height: 70vh;
+            overflow: hidden;
+        }
+        .chat-header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .chat-box {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .message {
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 20px;
+            line-height: 1.4;
+        }
+        .bot-message {
+            background-color: #e2e2e2;
+            align-self: flex-start;
+        }
+        .user-message {
+            background-color: #007bff;
+            color: white;
+            align-self: flex-end;
+        }
+        .chat-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+        .chat-input input {
+            flex-grow: 1;
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            outline: none;
+        }
+        .chat-input button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .chat-input button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="chat-header">
+        Suporte Online - Reclamações
+    </div>
+    <div class="chat-box" id="chat-box">
+        </div>
+    <div class="chat-input">
+        <input type="text" id="user-input" placeholder="Digite sua resposta..." disabled>
+        <button id="send-button" disabled>Enviar</button>
+    </div>
+</div>
+
+<script>
+    const chatBox = document.getElementById('chat-box');
+    const userInput = document.getElementById('user-input');
+    const sendButton = document.getElementById('send-button');
+
+    const questions = [
+        "Olá! Eu sou o assistente virtual. Para começar, por favor, me diga seu nome completo.",
+        "Certo, e qual é o seu e-mail?",
+        "Entendido. Qual sua reclamação?",
+        "Entendo..Poderia me explicar o que aconteceu?",
+        "Por favor, vocẽ teria algum registro ou fotografia?",
+        "Sua reclamação foi registrada! Um de nossos analistas entrará em contato em breve.Resolveremos o mais rápido possível."
+    ];
+    let currentQuestionIndex = 0;
+    let userAnswers = {};
+
+    function addMessage(text, sender) {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message');
+        messageDiv.classList.add(sender === 'bot' ? 'bot-message' : 'user-message');
+        messageDiv.textContent = text;
+        chatBox.appendChild(messageDiv);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function askQuestion() {
+        if (currentQuestionIndex < questions.length) {
+            addMessage(questions[currentQuestionIndex], 'bot');
+            userInput.disabled = false;
+            sendButton.disabled = false;
+            userInput.focus();
+        } else {
+            userInput.disabled = true;
+            sendButton.disabled = true;
+        }
+    }
+
+    function handleUserInput() {
+        const answer = userInput.value.trim();
+        if (answer === '') return;
+
+        addMessage(answer, 'user');
+        
+        // Armazenar a resposta do usuário
+        const questionKey = ['nome', 'email', 'empresa', 'assunto', 'detalhes'][currentQuestionIndex];
+        if (questionKey) {
+            userAnswers[questionKey] = answer;
+        }
+
+        userInput.value = '';
+        currentQuestionIndex++;
+
+        setTimeout(() => {
+            askQuestion();
+            if (currentQuestionIndex === questions.length) {
+                // Aqui você enviaria os dados para o servidor
+                console.log('Dados do usuário:', userAnswers);
+                alert('Reclamação enviada! Veja o console para os dados coletados.');
+            }
+        }, 500); // Pequeno delay para a mensagem do robô
+    }
+
+    sendButton.addEventListener('click', handleUserInput);
+    userInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            handleUserInput();
+        }
+    });
+
+    // Iniciar o chat
+    window.onload = () => {
+        askQuestion();
+    };
+</script>
+
+</body>
+</html>
