@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Autono - Encontre Profissionais</title>
     <style>
-        /* Basic inline styles to mimic some colors and layout */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            background-color: #f0f8ff; /* Light blue background */
+            background-color: #f0f8ff;
         }
         .header {
-            background-color: #f7a956; /* Orange header */
+            background-color: #f7a956;
             padding: 15px 20px;
             display: flex;
             align-items: center;
@@ -25,7 +24,6 @@
             align-items: center;
         }
         .header .icon {
-            /* Placeholder for icons, in a real site these would be SVG or font icons */
             width: 30px;
             height: 30px;
             background-color: rgba(255, 255, 255, 0.3);
@@ -62,7 +60,7 @@
             margin-right: 20px;
         }
         .section-title-bar {
-            background-color: #ADD8E6; /* Light blue bar for titles */
+            background-color: #ADD8E6;
             padding: 7px 10px;
             margin-top: 10px;
             display: flex;
@@ -79,36 +77,37 @@
         }
         .profiles-container {
             display: flex;
-            overflow-x: auto; /* Enables horizontal scrolling if content overflows */
+            flex-wrap: wrap; /* agora os perfis vão se organizar em linhas */
+            justify-content: center;
             padding: 20px;
-            gap: 20px;
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
-        }
-        .profiles-container::-webkit-scrollbar { /* Hide scrollbar for Chrome, Safari and Opera */
-            display: none;
+            gap: 30px;
         }
         .profile-card {
             background-color: white;
             border: 1px solid #ccc;
-            border-radius: 10px;
+            border-radius: 15px;
             text-align: center;
-            padding: 15px;
-            min-width: 150px; /* Adjust as needed */
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            width: 200px; /* aumenta tamanho */
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+        .profile-card:hover {
+            transform: scale(1.05); /* efeito ao passar o mouse */
         }
         .profile-card img {
-            width: 80px;
-            height: 80px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 10px;
-            border: 1px solid #eee; /* Light border around image */
+            margin-bottom: 15px;
+            border: 2px solid #eee;
         }
         .profile-card p {
             margin: 0;
             font-weight: bold;
             color: #333;
+            font-size: 1.1em;
         }
         .footer-pagination {
             background-color: #f0f8ff;
@@ -132,14 +131,18 @@
 
     <header class="header">
         <div class="left-icons">
-            <div class="icon">&#128100;</div> </div>
+            <div class="icon">&#128100;</div>
+        </div>
         <div class="search-bar">
-            <span class="icon">&#128269;</span> <input type="text" placeholder="Pesquisar">
+            <span class="icon">&#128269;</span>
+            <input type="text" placeholder="Pesquisar">
             <span class="close-icon">&times;</span>
         </div>
         <div class="logo">Autono</div>
         <div class="right-icons">
-            <div class="icon">&#128274;</div> <div class="icon">&#9776;</div> </div>
+            <div class="icon">&#128274;</div>
+            <div class="icon">&#9776;</div>
+        </div>
     </header>
 
     <section>
@@ -188,154 +191,9 @@
                 <img src="https://img.freepik.com/vetores-premium/perfil-de-avatar-de-mulher-no-icone-redondo_24640-14042.jpg" alt="Babá Profile Picture">
                 <p>Babá</p>
             </div>
+        </div>
     </section>
 
-    <section>
-       
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autono - Encontre Profissionais</title>
-    <style>
-        /* Basic inline styles to mimic some colors and layout */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f0f8ff; /* Light blue background */
-        }
-        .header {
-            background-color: #f7a956; /* Orange header */
-            padding: 15px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            color: white;
-        }
-        .header .left-icons, .header .right-icons {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-        .header .icon {
-            /* Placeholder for icons, in a real site these would be SVG or font icons */
-            width: 30px;
-            height: 30px;
-            background-color: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2em;
-        }
-        .header .search-bar {
-            flex-grow: 1;
-            margin: 0 20px;
-            display: flex;
-            background-color: white;
-            border-radius: 20px;
-            padding: 5px 15px;
-            align-items: center;
-            color: #333;
-        }
-        .header .search-bar input {
-            border: none;
-            outline: none;
-            flex-grow: 1;
-            padding: 5px;
-            font-size: 1em;
-        }
-        .header .search-bar .close-icon {
-            margin-left: 10px;
-            cursor: pointer;
-        }
-        .header .logo {
-            font-size: 1.8em;
-            font-weight: bold;
-            margin-right: 20px;
-        }
-        .section-title-bar {
-            background-color: #ADD8E6; /* Light blue bar for titles */
-            padding: 7px 10px;
-            margin-top: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: bold;
-            color: #333;
-            font-size: 1.2em;
-        }
-        .section-title-bar a {
-            color: #333;
-            text-decoration: none;
-            font-size: 0.9em;
-        }
-        .profiles-container {
-            display: flex;
-            overflow-x: auto; /* Enables horizontal scrolling if content overflows */
-            padding: 20px;
-            gap: 20px;
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
-        }
-        .profiles-container::-webkit-scrollbar { /* Hide scrollbar for Chrome, Safari and Opera */
-            display: none;
-        }
-        .profile-card {
-            background-color: white;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            text-align: center;
-            padding: 15px;
-            min-width: 150px; /* Adjust as needed */
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .profile-card img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 10px;
-            border: 1px solid #eee; /* Light border around image */
-        }
-        .profile-card p {
-            margin: 0;
-            font-weight: bold;
-            color: #333;
-        }
-        .footer-pagination {
-            background-color: #f0f8ff;
-            padding: 10px 20px;
-            text-align: center;
-            font-size: 0.9em;
-            color: #666;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            border-top: 1px solid #eee;
-        }
-    </style>
-</head>
-<body>
-
-    <header class="header">
-        <div class="left-icons">
-            <div class="icon">&#128100;</div> </div>
-        <div class="search-bar">
-            <span class="icon">&#128269;</span> <input type="text" placeholder="Pesquisar">
-            <span class="close-icon">&times;</span>
-        </div>
-        <div class="logo">Autono</div>
-        <div class="right-icons">
-            <div class="icon">&#128274;</div> <div class="icon">&#9776;</div> </div>
-    </header>
-
-    <section>
-        </div>
 </body>
 </html>
+
