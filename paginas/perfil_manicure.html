@@ -16,7 +16,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-color: #366799; /* Cor de fundo azul da imagem */
+            background-color: #366799;
             box-sizing: border-box;
         }
         
@@ -30,18 +30,18 @@
         .container {
             background-color: #fff;
             width: 100%;
-            max-width: 400px; /* Largura máxima para simular um aplicativo móvel */
+            max-width: 400px;
             border-radius: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden; /* Garante que o conteúdo não vaze das bordas arredondadas */
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            padding-bottom: 20px; /* Espaçamento para o botão na parte inferior */
+            padding-bottom: 20px;
             box-sizing: border-box;
         }
 
         .header {
-            background-color: #f0f0f0; /* Cor de fundo da barra superior */
+            background-color: #f0f0f0;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -61,7 +61,6 @@
         .arrow-back, .menu-icon {
             font-size: 1.3em;
             color: #ebc109;
-            
         }
 
         .profile-card {
@@ -77,7 +76,7 @@
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            background-color: #ffc107; /* Cor de fundo da imagem de perfil */
+            background-color: #ffc107;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -87,10 +86,10 @@
         }
 
         .profile-image {
-            width: 90%; /* Ajuste para caber dentro do círculo amarelo */
+            width: 90%;
             height: 90%;
             border-radius: 50%;
-            object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+            object-fit: cover;
         }
 
         .username {
@@ -110,12 +109,12 @@
         .status-container {
             display: flex;
             align-items: center;
-            gap: 10px; /* Espaço entre a tag e as estrelas */
+            gap: 10px;
             margin-bottom: 20px;
         }
 
         .status-tag {
-            background-color: #ffc107; /* Cor laranja da tag */
+            background-color: #e83e8c;
             color: #fff;
             padding: 5px 10px;
             border-radius: 5px;
@@ -124,19 +123,19 @@
         }
 
         .stars {
-            color: #ffc107; /* Cor das estrelas */
+            color: #ffc107;
             font-size: 1.2em;
         }
 
         .stars .far.fa-star {
-            color: #ccc; /* Cor para estrelas vazias */
+            color: #ccc;
         }
 
         .details-box, .section-box {
-            background-color: #e0e6ec; /* Cor do fundo das caixas de detalhes e seções */
+            background-color: #e0e6ec;
             border-radius: 10px;
             padding: 20px;
-            width: calc(100% - 40px); /* Largura total menos o padding */
+            width: calc(100% - 40px);
             text-align: left;
             margin-bottom: 25px;
             box-sizing: border-box;
@@ -183,7 +182,6 @@
             font-style: italic;
         }
 
-
         .bio-title {
             font-weight: bold;
             margin-top: 15px;
@@ -194,7 +192,7 @@
         }
 
         .chat-button {
-            background-color: #366799; /* Azul do botão "CONVERSAR" */
+            background-color: #366799;
             color: #fff;
             padding: 15px 30px;
             border: none;
@@ -203,14 +201,14 @@
             font-weight: bold;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            margin-top: 20px; /* Espaço entre a caixa de detalhes e o botão */
-            width: 80%; /* Largura do botão */
+            margin-top: 20px;
+            width: 80%;
             max-width: 300px;
-            align-self: center; /* Centraliza o botão dentro do flexbox */
+            align-self: center;
         }
 
         .chat-button:hover {
-            background-color: #2b5275; /* Azul mais escuro ao passar o mouse */
+            background-color: #2b5275;
         }
     </style>
 </head>
@@ -224,36 +222,36 @@
 
         <main class="profile-card">
             <div class="profile-image-container">
-                <img class="foto-perfil" src="https://plus.unsplash.com/premium_photo-1689568126014-06fea9d5d341?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGVyZmlsfGVufDB8fDB8fHww">
+                <img class="foto-perfil" src="https://images.unsplash.com/photo-1601049541608-8f20aa14e796?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Foto da manicure">
             </div>
-            <p class="username">@Lucascheff</p>
-            <h2 class="name">Lucas</h2>
+            <p class="username">@NailArtLover</p>
+            <h2 class="name">Juliana Souza</h2>
 
             <div class="status-container">
-                <span class="status-tag">TRABALHADOR</span>
+                <span class="status-tag">MANICURE</span>
                 <div class="stars">
                     <i class="fas fa-star falled"></i>
                     <i class="fas fa-star falled"></i>
                     <i class="fas fa-star falled"></i>
-                    <i class="far fa-star "></i>
+                    <i class="fas fa-star falled"></i>
                     <i class="far fa-star"></i>
                 </div>
             </div>
 
             <div class="details-box">
-                <p>Ocupação: Manicure</p>
-                <p>Idade: 26</p>
+                <p>Ocupação: Manicure e Nail Designer</p>
+                <p>Idade: 28</p>
                 <p>Tempo de experiência: 5 anos</p>
                 <p class="bio-title">Biografia:</p>
-                <p class="bio-text">"Trabalho bem e agenda flexível."</p>
+                <p class="bio-text">"Acredito que cada detalhe faz diferença. Meu trabalho é trazer autoestima e beleza através das unhas."</p>
             </div>
 
             <div class="section-box curriculum">
                 <h2>Currículo</h2>
                 <ul class="curriculum-list">
-                    <li><p><strong>Certificações:</strong> Certificado em Nail Design.</p></li>
-                    <li><p><strong>Experiência Profissional:</strong> 5 anos (2020-2025).</p></li>
-                    <li><p><strong>Habilidades:</strong> Reparo de vazamentos, instalação de tubulações, desentupimento e manutenção geral de sistemas hidráulicos.</p></li>
+                    <li><p><strong>Equipamento:</strong> Kit completo de manicure, cabine UV e materiais profissionais.</p></li>
+                    <li><p><strong>Especialidade:</strong> Nail art criativa, francesinha, alongamento em gel e fibra.</p></li>
+                    <li><p><strong>Habilidades:</strong> Atendimento personalizado, esterilização correta de materiais e técnicas modernas de design.</p></li>
                 </ul>
             </div>
 
@@ -261,18 +259,7 @@
                 <h2>Avaliações</h2>
                 <ul class="reviews-list">
                     <li class="review-item">
-                        <div class="review-author">Maria S.</div>
-                        <div class="stars">
-                            <i class="fas fa-star falled"></i>
-                            <i class="fas fa-star falled"></i>
-                            <i class="fas fa-star falled"></i>
-                            <i class="fas fa-star falled"></i>
-                            <i class="fas fa-star falled"></i>
-                        </div>
-                        <p class="review-text">"Serviço rápido e eficiente! Resolveu um vazamento complicado na minha pia sem sujeira."</p>
-                    </li>
-                    <li class="review-item">
-                        <div class="review-author">João C.</div>
+                        <div class="review-author">Carla M.</div>
                         <div class="stars">
                             <i class="fas fa-star falled"></i>
                             <i class="fas fa-star falled"></i>
@@ -280,7 +267,18 @@
                             <i class="fas fa-star falled"></i>
                             <i class="far fa-star"></i>
                         </div>
-                        <p class="review-text">"Lucas instalou um novo chuveiro para mim. Trabalho perfeito e foi muito educado."</p>
+                        <p class="review-text">"Adorei as unhas decoradas! A Juliana tem muita criatividade, só achei que demorou um pouquinho mais que o esperado."</p>
+                    </li>
+                    <li class="review-item">
+                        <div class="review-author">Fernanda R.</div>
+                        <div class="stars">
+                            <i class="fas fa-star falled"></i>
+                            <i class="fas fa-star falled"></i>
+                            <i class="fas fa-star falled"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <p class="review-text">"Gostei bastante, mas algumas unhas lascaram em poucos dias. Ainda assim, ela é muito atenciosa e simpática."</p>
                     </li>
                 </ul>
             </div>
