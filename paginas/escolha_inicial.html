@@ -99,11 +99,11 @@
     <div class="container">
         <h1>Escolha seu Perfil de Login</h1>
         <div class="options">
-            <a onclick="rafa('a procura de um trabalhador')" class="option-box">
+            <a onclick="trabalhador(pagina)" class="option-box">
                 <img src="https://static.vecteezy.com/system/resources/previews/015/119/100/non_2x/businessman-icon-man-icon-design-illustration-free-png.png" alt="Ícone de trabalhador" width="250px">
                 <p>À procura de um trabalhador</p>
             </a>
-            <a onclick="rafa('a procura de um trabalho')"  class="option-box">
+            <a onclick="trabalho(pagina)"  class="option-box">
                 <img src="https://cdn-icons-png.flaticon.com/512/782/782899.png" alt="Ícone de contratante" width="250px">
                 <p>À procura de um trabalho</p>
             </a>
@@ -113,15 +113,14 @@
     <footer>
         &copy; 2025 Sua Empresa. Todos os direitos reservados.
     </footer>
-</body>
-<script>
-    function rafa(pagina){
-        if(pagina == "a procura de um trabalhador"){
-            window.location.href = "file:///C:/Users/emanu/AppData/Local/Temp/64e08bcd-696d-4ac4-854f-e95d2f6feab6_autonomus-main.zip.ab6/autonomus-main/paginas/login_contratante.html"
+    <script>
+    function trabalhador(pagina){
+        window.location.href = "file:///C:/Users/emanu/AppData/Local/Temp/64e08bcd-696d-4ac4-854f-e95d2f6feab6_autonomus-main.zip.ab6/autonomus-main/paginas/login_contratante.html"
         }
-        if(pagina == "a procura de um trabalho"){
+    function trabalho(pagina){
             window.location.href = "file:///C:/Users/emanu/AppData/Local/Temp/a865cd5b-d89c-4ea8-8919-c4640f953569_autonomus-main.zip.569/autonomus-main/paginas/login_trabalhador.html"
         }
     }
 </script>    
+</body>
 </html>
