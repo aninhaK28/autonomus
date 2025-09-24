@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #803b3b; /* Tom vinho */
+            box-sizing: border-box;
+        }
+        
+        .foto-perfil {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .container {
+            background-color: #fff;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        .header {
+            background-color: #f4eaea;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            color: #333;
+            font-size: 1.2em;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            box-sizing: border-box;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 1.1em;
+        }
+
+        .arrow-back, .menu-icon {
+            font-size: 1.3em;
+            color: #cc4444;
+        }
+
+        .profile-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .profile-image-container {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #cc4444;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .username {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .name {
+            font-size: 1.8em;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .status-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .status-tag {
+            background-color: #cc4444;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 1.2em;
+        }
+
+        .stars .far.fa-star {
+            color: #ccc;
+        }
+
+        .details-box, .section-box {
+            background-color: #f2e6e6;
+            border-radius: 10px;
+            padding: 20px;
+            width: calc(100% - 40px);
+            text-align: left;
+            margin-bottom: 25px;
+            box-sizing: border-box;
+        }
+
+        .details-box p {
+            margin: 5px 0;
+            color: #333;
+            font-size: 0.95em;
+            line-height: 1.4;
+        }
+        
+        .section-box h2 {
+            font-size: 1.2em;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #cc4444;
+            padding-bottom: 5px;
+        }
+        
+        .curriculum-list, .reviews-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .curriculum-list li, .review-item {
+            margin-bottom: 15px;
+        }
+        
+        .review-author {
+            font-weight: bold;
+            color: #803b3b;
+            margin-bottom: 5px;
+        }
+
+        .review-text {
+            color: #555;
+            font-style: italic;
+        }
+
+        .bio-title {
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .bio-text {
+            font-style: italic;
+        }
+
+        .chat-button {
+            background-color: #cc4444;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+            width: 80%;
+            max-width: 300px;
+            align-self: center;
+        }
+
+        .chat-button:hover {
+            background-color: #a83232;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <i class="fas fa-arrow-left arrow-back"></i>
+            <h1>Perfil</h1>
+            <i class="fas fa-bars menu-icon"></i>
+        </header>
+
+        <main class="profile-card">
+            <div class="profile-image-container">
+                <img class="foto-perfil" src="https://images.unsplash.com/photo-1600180758895-71f0a3da4a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Foto da costureira">
+            </div>
+            <p class="username">@CosturaSimples</p>
+            <h2 class="name">Dona Maria</h2>
+
+            <div class="status-container">
+                <span class="status-tag">COSTUREIRA</span>
+                <div class="stars">
+                    <i class="fas fa-star falled"></i>
+                    <i class="fas fa-star falled"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+            </div>
+
+            <div class="details-box">
+                <p>Ocupação: Costureira de bairro</p>
+                <p>Idade: 58</p>
+                <p>Tempo de experiência: 30 anos</p>
+                <p class="bio-title">Biografia:</p>
+                <p class="bio-text">"Trabalho de forma simples e faço o possível para atender todos. Minha prioridade é entregar rápido, mesmo que nem sempre saia perfeito."</p>
+            </div>
+
+            <div class="section-box curriculum">
+                <h2>Currículo</h2>
+                <ul class="curriculum-list">
+                    <li><p><strong>Equipamento:</strong> Máquina de costura antiga e linha variada.</p></li>
+                    <li><p><strong>Especialidade:</strong> Barras de calça e pequenos ajustes.</p></li>
+                    <li><p><strong>Habilidades:</strong> Rapidez no conserto, experiência prática e disposição para atender clientes do bairro.</p></li>
+                </ul>
+            </div>
+
+            <div class="section-box reviews">
+                <h2>Avaliações</h2>
+                <ul class="reviews-list">
+                    <li class="review-item">
+                        <div class="review-author">Patrícia L.</div>
+                        <div class="stars">
+                            <i class="fas fa-star falled"></i>
+                            <i class="fas fa-star falled"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <p class="review-text">"Fez a barra da minha calça, mas ficou torta. Ela refez sem cobrar, mas ainda assim não ficou perfeito."</p>
+                    </li>
+                    <li class="review-item">
+                        <div class="review-author">Renato C.</div>
+                        <div class="stars">
+                            <i class="fas fa-star falled"></i>
+                            <i class="fas fa-star falled"></i>
+                            <i class="fas fa-star falled"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <p class="review-text">"Entrega rápida, mas o acabamento deixa a desejar. Bom para consertos simples."</p>
+                    </li>
+                </ul>
+            </div>
+            <button class="chat-button">CONVERSAR</button>
+        </main>
+    </div>
+</body>
+</html>
