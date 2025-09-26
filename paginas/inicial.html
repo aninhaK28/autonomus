@@ -197,47 +197,45 @@
 
 <script>
 
-    const pesq = document.getElementById('pesquisa');
-pesq.addEventListener('keyup', function(e){
-  var key = e.which || e.keyCode;
-  if (key == 13) {
-    if(pesq.value == "manicure"){
-      window.location.href = "/paginas/perfil_manicure.html"
-    }
+const pesq = document.getElementById('pesquisa');
 
-    if(pesq.value == "jardineiro"){
-      window.location.href = "/paginas/perfil_jardineiro.htmlfile:///tmp/.fr-cRUow9/autonomus-main/paginas/perfil_jardineiro.html"      
-    }
+pesq.addEventListener('keydown', function(e){
+  if (e.key === "Enter") {
+    e.preventDefault(); // evita o "submit" padrão do teclado
+    let valor = pesq.value.toLowerCase().trim();
 
-    if(pesq.value == "fotografa"){
-      window.location.href = "/paginas/perfil_fotografa.html"
+    if(valor === "manicure"){
+      window.location.href = "paginas/perfil_manicure.html";
     }
-
-    if(pesq.value == "mecanico"){
-      window.location.href = "/paginas/perfil_mecanico.html"
+    if(valor === "jardineiro"){
+      window.location.href = "paginas/perfil_jardineiro.html";      
     }
-
-    if(pesq.value == "maquiadora"){
-      window.location.href = "/paginas/perfil_maquiadora.html"
+    if(valor === "fotografa"){
+      window.location.href = "paginas/perfil_fotografa.html";
     }
-
-    if(pesq.value == "eletricista"){
-      window.location.href = "/paginas/perfil_eletricista.html"
-    } 
-
-    if(pesq.value == "costureira"){
-      window.location.href = "/paginas/perfil_costureira.html"
+    if(valor === "mecanico"){
+      window.location.href = "paginas/perfil_mecanico.html";
     }
-
-    if(pesq.value == "servente de pedreiro"){
-      window.location.href = "/paginas/perfil_serventedepedreiro.html"
+    if(valor === "maquiadora"){
+      window.location.href = "paginas/perfil_maquiadora.html";
     }
-
-    if(pesq.value == "baba"){
-      window.location.href = "/paginas/perfil_baba.html"
+    if(valor === "eletricista"){
+      window.location.href = "paginas/perfil_eletricista.html";
     }
-   
-}
+    if(valor === "costureira"){
+      window.location.href = "paginas/perfil_costureira.html";
+    }
+    if(valor === "servente de pedreiro"){
+      window.location.href = "paginas/perfil_serventedepedreiro.html";
+    }
+    if(valor === "baba"){
+      window.location.href = "paginas/perfil_baba.html";
+    }
+    if(valor === "doméstica" || valor === "domestica"){
+      window.location.href = "paginas/perfil_domestica.html";
+    }
+  }
+});
 
     function rafa(pagina){
         if(pagina == "manicure"){
@@ -280,4 +278,3 @@ pesq.addEventListener('keyup', function(e){
     }
 </script>        
 </html>
-
