@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomus - Encontre Profissionais</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f0f8ff;
+        }
+        .header {
+            background-color: #f7a956;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: white;
+        }
+        .header .left-icons, .header .right-icons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        .header .icon {
+            width: 30px;
+            height: 30px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+        .header .search-bar {
+            flex-grow: 1;
+            margin: 0 20px;
+            display: flex;
+            background-color: white;
+            border-radius: 20px;
+            padding: 5px 15px;
+            align-items: center;
+            color: #333;
+        }
+        .header .search-bar input {
+            border: none;
+            outline: none;
+            flex-grow: 1;
+            padding: 5px;
+            font-size: 1em;
+        }
+        .header .search-bar .close-icon {
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .header .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-right: 20px;
+        }
+        .section-title-bar {
+            background-color: #ADD8E6;
+            padding: 7px 10px;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            color: #333;
+            font-size: 1.2em;
+        }
+        .section-title-bar a {
+            color: #333;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+        .profiles-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            gap: 30px;
+        }
+        .profile-card {
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            text-align: center;
+            padding: 20px;
+            width: 200px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+        .profile-card:hover {
+            transform: scale(1.05);
+        }
+        .profile-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 2px solid #eee;
+        }
+        .profile-card p {
+            margin: 0;
+            font-weight: bold;
+            color: #333;
+            font-size: 1.1em;
+        }
+        .footer-pagination {
+            background-color: #f0f8ff;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="left-icons">
+            <div class="icon">&#128100;</div>
+        </div>
+        <div class="search-bar">
+            <span class="icon">&#128269;</span>
+            <input id="pesquisa" type="text" placeholder="Pesquisar">
+            <span class="close-icon">&times;</span>
+        </div>
+        <div class="logo">Autonomus</div>
+        <div class="right-icons">
+            <!-- Removi o cadeado -->
+            <div class="icon" onclick="abrirSuporte()">&#9776;</div>
+        </div>
+    </header>
+
+    <section>
+        <div class="section-title-bar">
+            <h2>Trabalhadores na sua região</h2>
+        </div>
+        <div class="profiles-container">
+            <!-- seus cards continuam iguais -->
+        </div>
+    </section>
+
+<script>
+function abrirSuporte(){
+    window.location.href = "content://com.android.fileexplorer.myprovider/external_files/autonomus-main/autonomus-main/paginas/suporte.html";
+}
+</script>
+
+</body>
+</html>
