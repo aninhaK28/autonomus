@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autonomus - Encontre Profissionais</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f0f8ff;
+    }
+    .hidden { display: none; }
+    .header {
+      background-color: #4682b4;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      position: relative;
+    }
+    .header .menu {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      cursor: pointer;
+      font-size: 24px;
+    }
+    .content { padding: 20px; }
+    .perfil-card {
+      background: #fff;
+      margin: 10px;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+    .search-box {
+      display: flex;
+      margin-bottom: 20px;
+    }
+    .search-box input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 5px 0 0 5px;
+      border: 1px solid #ccc;
+    }
+    .search-box button {
+      padding: 10px;
+      border: none;
+      background: #4682b4;
+      color: #fff;
+      border-radius: 0 5px 5px 0;
+      cursor: pointer;
+    }
+    .menu-panel {
+      position: fixed;
+      top: 0;
+      right: -250px;
+      width: 250px;
+      height: 100%;
+      background: #fff;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+      transition: right 0.3s ease;
+      padding: 20px;
+    }
+    .menu-panel.active { right: 0; }
+    .menu-panel h3 { margin-top: 0; }
+    .menu-panel a {
+      display: block;
+      margin: 10px 0;
+      text-decoration: none;
+      color: #4682b4;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Escolha Inicial -->
+<section id="escolha_inicial">
+  <div class="header"><h1>Autonomus</h1></div>
+  <div class="content">
+    <h2>Escolha sua opção</h2>
+    <button onclick="navigateTo('inicial')">Entrar como Trabalhador</button>
+    <button onclick="navigateTo('inicial')">Entrar como Contratante</button>
+  </div>
+</section>
+
+<!-- Página Inicial -->
+<section id="inicial" class="hidden">
+  <div class="header">
+    <h1>Autonomus</h1>
+    <div class="menu" onclick="toggleMenu()">&#9776;</div>
+  </div>
+  <div class="content">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Pesquisar...">
+      <button onclick="searchProfiles()">Buscar</button>
+    </div>
+    <div id="searchResults"></div>
+    <h2>Perfis em destaque</h2>
+    <div class="perfil-card" onclick="navigateTo('perfil_manicure')">Manicure</div>
+    <div class="perfil-card" onclick="navigateTo('perfil_maquiadora')">Maquiadora</div>
+    <div class="perfil-card" onclick="navigateTo('perfil_jardineiro')">Jardineiro</div>
+    <div class="perfil-card" onclick="navigateTo('perfil_mecanico')">Mecânico</div>
+    <div class="perfil-card" onclick="navigateTo('perfil_eletricista')">Eletricista</div>
+    <div class="perfil-card" onclick="navigateTo('perfil_domestica')">Doméstica</div>
+    <div class="perfil-card" onclick="navigateTo('perfil_costureira')">Costureira</div>
+    <div class="perfil-card" onclick="navigateTo('perfil_baba')">Babá</div>
+    <div class="perfil-card" onclick="navigateTo('perfil_serventedepedreiro')">Servente de Pedreiro</div>
+    <div class="perfil-card" onclick="navigateTo('perfil_fotografa')">Fotógrafa</div>
+  </div>
+</section>
+
+<!-- Perfis -->
+<section id="perfil_manicure" class="hidden"><div class="header"><h1>Perfil Manicure</h1></div><div class="content"><p>Detalhes da manicure...</p><button onclick="navigateTo('inicial')">Voltar</button></div></section>
+
+<section id="perfil_maquiadora" class="hidden"><div class="header"><h1>Perfil Maquiadora</h1></div><div class="content"><p>Detalhes da maquiadora...</p><button onclick="navigateTo('inicial')">Voltar</button></div></section>
+
+<section id="perfil_jardineiro" class="hidden"><div class="header"><h1>Perfil Jardineiro</h1></div><div class="content"><p>Detalhes do jardineiro...</p><button onclick="navigateTo('inicial')">Voltar</button></div></section>
+
+<section id="perfil_mecanico" class="hidden"><div class="header"><h1>Perfil Mecânico</h1></div><div class="content"><p>Detalhes do mecânico...</p><button onclick="navigateTo('inicial')">Voltar</button></div></section>
+
+<section id="perfil_eletricista" class="hidden"><div class="header"><h1>Perfil Eletricista</h1></div><div class="content"><p>Detalhes do eletricista...</p><button onclick="navigateTo('inicial')">Voltar</button></div></section>
+
+<section id="perfil_domestica" class="hidden"><div class="header"><h1>Perfil Doméstica</h1></div><div class="content"><p>Detalhes da doméstica...</p><button onclick="navigateTo('inicial')">Voltar</button></div></section>
+
+<section id="perfil_costureira" class="hidden"><div class="header"><h1>Perfil Costureira</h1></div><div class="content"><p>Detalhes da costureira...</p><button onclick="navigateTo('inicial')">Voltar</button></div></section>
+
+<section id="perfil_baba" class="hidden"><div class="header"><h1>Perfil Babá</h1></div><div class="content"><p>Detalhes da babá...</p><button onclick="navigateTo('inicial')">Voltar</button></div></section>
+
+<section id="perfil_serventedepedreiro" class="hidden"><div class="header"><h1>Perfil Servente de Pedreiro</h1></div><div class="content"><p>Detalhes do servente de pedreiro...</p><button onclick="navigateTo('inicial')">Voltar</button></div></section>
+
+<section id="perfil_fotografa" class="hidden"><div class="header"><h1>Perfil Fotógrafa</h1></div><div class="content"><p>Detalhes da fotógrafa...</p><button onclick="navigateTo('inicial')">Voltar</button></div></section>
+
+<!-- Suporte -->
+<section id="suporte" class="hidden">
+  <div class="header"><h1>Suporte</h1></div>
+  <div class="content">
+    <p>Bem-vindo ao suporte.</p>
+    <button onclick="navigateTo('inicial')">Voltar</button>
+  </div>
+</section>
+
+<!-- Chat -->
+<section id="chat" class="hidden">
+  <div class="header"><h1>Chat de Conversas</h1></div>
+  <div class="content">
+    <p>Aqui vai o chat de conversas...</p>
+    <button onclick="navigateTo('inicial')">Voltar</button>
+  </div>
+</section>
+
+<!-- Menu lateral -->
+<div id="menuPanel" class="menu-panel">
+  <h3>Menu</h3>
+  <a href="#" onclick="navigateTo('suporte'); toggleMenu()">Suporte</a>
+  <a href="#" onclick="navigateTo('chat'); toggleMenu()">Chat</a>
+</div>
+
+<script>
+  function navigateTo(sectionId) {
+    document.querySelectorAll("section").forEach(sec => sec.classList.add("hidden"));
+    document.getElementById(sectionId).classList.remove("hidden");
+  }
+
+  function toggleMenu() {
+    document.getElementById("menuPanel").classList.toggle("active");
+  }
+
+  function searchProfiles() {
+    const query = document.getElementById("searchInput").value.toLowerCase();
+    const resultsDiv = document.getElementById("searchResults");
+    resultsDiv.innerHTML = "";
+    if (!query) return;
+    const profiles = [
+      {id:"perfil_manicure", name:"Manicure"},
+      {id:"perfil_maquiadora", name:"Maquiadora"},
+      {id:"perfil_jardineiro", name:"Jardineiro"},
+      {id:"perfil_mecanico", name:"Mecânico"},
+      {id:"perfil_eletricista", name:"Eletricista"},
+      {id:"perfil_domestica", name:"Doméstica"},
+      {id:"perfil_costureira", name:"Costureira"},
+      {id:"perfil_baba", name:"Babá"},
+      {id:"perfil_serventedepedreiro", name:"Servente de Pedreiro"},
+      {id:"perfil_fotografa", name:"Fotógrafa"}
+    ];
+    const filtered = profiles.filter(p => p.name.toLowerCase().includes(query));
+    if (filtered.length === 0) {
+      resultsDiv.innerHTML = "<p>Nenhum resultado encontrado.</p>";
+    } else {
+      filtered.forEach(p => {
+        const btn = document.createElement("div");
+        btn.className = "perfil-card";
+        btn.textContent = p.name;
+        btn.onclick = () => navigateTo(p.id);
+        resultsDiv.appendChild(btn);
+      });
+    }
+  }
+</script>
+
+</body>
+</html>
