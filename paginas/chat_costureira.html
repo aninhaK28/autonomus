@@ -27,7 +27,7 @@
             overflow: hidden;
         }
         .chat-header {
-            background-color: #6f42c1;
+            background-color: #007bff;
             color: white;
             padding: 15px;
             border-top-left-radius: 10px;
@@ -50,12 +50,12 @@
             border-radius: 20px;
             line-height: 1.4;
         }
-        .client-message {
+        .contractor-message {
             background-color: #e2e2e2;
             align-self: flex-start;
         }
-        .seamstress-message {
-            background-color: #6f42c1;
+        .worker-message {
+            background-color: #007bff;
             color: white;
             align-self: flex-end;
         }
@@ -72,7 +72,7 @@
             outline: none;
         }
         .chat-input button {
-            background-color: #6f42c1;
+            background-color: #007bff;
             color: white;
             border: none;
             border-radius: 20px;
@@ -82,7 +82,7 @@
             transition: background-color 0.3s;
         }
         .chat-input button:hover {
-            background-color: #4b2d85;
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -104,38 +104,35 @@
     const userInput = document.getElementById('user-input');
     const sendButton = document.getElementById('send-button');
 
-    // Conversa pré-definida (cliente x costureira)
+    // Conversa original com a Costureira
     const conversation = [
-        { sender: 'client', text: "Olá, vi seu perfil e gostaria de saber se você faz ajustes em roupas." },
-        { sender: 'seamstress', text: "Olá! Sim, faço sim. Qual tipo de ajuste você precisa?" },
-        { sender: 'client', text: "Tenho um vestido que ficou largo na cintura, queria apertar um pouco." },
-        { sender: 'seamstress', text: "Entendi. Posso ajustar sem problemas. Você pode trazer para eu dar uma olhada?" },
-        { sender: 'client', text: "Claro, pode ser amanhã à tarde?" },
-        { sender: 'seamstress', text: "Pode sim, estarei no ateliê a partir das 14h. Esse horário funciona?" },
-        { sender: 'client', text: "Funciona perfeitamente. Qual o valor do ajuste?" },
-        { sender: 'seamstress', text: "O ajuste na cintura do vestido sai por R$40." },
-        { sender: 'client', text: "Ótimo, combinado então. Até amanhã!" },
-        { sender: 'seamstress', text: "Combinado! Até amanhã, e obrigada pela confiança ✂️👗" }
+        { sender: 'contractor', text: "Olá, vi que você é costureira e gostaria de saber se faz ajustes em roupas." },
+        { sender: 'worker', text: "Olá! Sim, faço sim. Qual peça você gostaria de ajustar?" },
+        { sender: 'contractor', text: "É um vestido que ficou um pouco largo na cintura." },
+        { sender: 'worker', text: "Sem problemas, consigo ajustar para que fique certinho no seu corpo." },
+        { sender: 'contractor', text: "Que ótimo! Você também faz barra em calça jeans?" },
+        { sender: 'worker', text: "Faço sim, tanto barra original quanto simples, como preferir." },
+        { sender: 'contractor', text: "Perfeito! Quando posso levar as roupas até você?" },
+        { sender: 'worker', text: "Pode trazer amanhã pela manhã, que já consigo deixar pronto no mesmo dia." },
+        { sender: 'contractor', text: "Excelente, muito obrigada!" },
+        { sender: 'worker', text: "Eu que agradeço a confiança. Até amanhã!" }
     ];
 
     let conversationIndex = 1;
 
-    // Função para adicionar mensagens
     function addMessage(text, sender) {
         const messageDiv = document.createElement('div');
         messageDiv.classList.add('message');
-        messageDiv.classList.add(sender === 'client' ? 'client-message' : 'seamstress-message');
+        messageDiv.classList.add(sender === 'contractor' ? 'contractor-message' : 'worker-message');
         messageDiv.textContent = text;
         chatBox.appendChild(messageDiv);
         chatBox.scrollTop = chatBox.scrollHeight;
     }
 
-    // Primeira mensagem aparece ao carregar
     window.onload = () => {
         addMessage(conversation[0].text, conversation[0].sender);
     };
 
-    // Função para exibir mensagens da conversa
     function handleUserInput() {
         if (conversationIndex < conversation.length) {
             const msg = conversation[conversationIndex];
