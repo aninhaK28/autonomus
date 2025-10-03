@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversa com Babá</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .chat-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            height: 70vh;
+            overflow: hidden;
+        }
+        .chat-header {
+            background-color: #28a745;
+            color: white;
+            padding: 15px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .chat-box {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .message {
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 20px;
+            line-height: 1.4;
+        }
+        .client-message {
+            background-color: #e2e2e2;
+            align-self: flex-start;
+        }
+        .nanny-message {
+            background-color: #28a745;
+            color: white;
+            align-self: flex-end;
+        }
+        .chat-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+        .chat-input input {
+            flex-grow: 1;
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            outline: none;
+        }
+        .chat-input button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .chat-input button:hover {
+            background-color: #1e7e34;
+        }
+    </style>
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="chat-header">
+        Conversa com Babá
+    </div>
+    <div class="chat-box" id="chat-box"></div>
+    <div class="chat-input">
+        <input type="text" id="user-input" placeholder="Clique em Enviar para continuar...">
+        <button id="send-button">Enviar</button>
+    </div>
+</div>
+
+<script>
+    const chatBox = document.getElementById('chat-box');
+    const userInput = document.getElementById('user-input');
+    const sendButton = document.getElementById('send-button');
+
+    // Conversa pré-definida (cliente x babá)
+    const conversation = [
+        { sender: 'client', text: "Olá, vi seu perfil e gostaria de saber se você está disponível para cuidar do meu filho no fim de semana." },
+        { sender: 'nanny', text: "Olá! Sim, tenho disponibilidade. Qual seria o horário que você precisa?" },
+        { sender: 'client', text: "Seria no sábado à noite, das 19h até umas 23h." },
+        { sender: 'nanny', text: "Perfeito, posso sim nesse horário. Seu filho tem quantos anos?" },
+        { sender: 'client', text: "Ele tem 4 anos, é bem tranquilo e adora brincar com blocos de montar." },
+        { sender: 'nanny', text: "Que ótimo! Já cuidei de crianças dessa idade. Posso levar algumas atividades para entreter ele." },
+        { sender: 'client', text: "Adorei a ideia! E quanto ficaria o valor?" },
+        { sender: 'nanny', text: "Cobrarei R$80 pelo período. Inclui todo o cuidado e brincadeiras com ele." },
+        { sender: 'client', text: "Está ótimo, combinado então. Obrigada!" },
+        { sender: 'nanny', text: "Eu que agradeço pela confiança. Até sábado! 🌸" }
+    ];
+
+    let conversationIndex = 1;
+
+    // Função para adicionar mensagens
+    function addMessage(text, sender) {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message');
+        messageDiv.classList.add(sender === 'client' ? 'client-message' : 'nanny-message');
+        messageDiv.textContent = text;
+        chatBox.appendChild(messageDiv);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    // Primeira mensagem aparece ao carregar
+    window.onload = () => {
+        addMessage(conversation[0].text, conversation[0].sender);
+    };
+
+    // Função para exibir mensagens da conversa
+    function handleUserInput() {
+        if (conversationIndex < conversation.length) {
+            const msg = conversation[conversationIndex];
+            addMessage(msg.text, msg.sender);
+            conversationIndex++;
+        } else {
+            userInput.disabled = true;
+            sendButton.disabled = true;
+            userInput.placeholder = "Conversa finalizada.";
+        }
+    }
+
+    sendButton.addEventListener('click', handleUserInput);
+    userInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') handleUserInput();
+    });
+</script>
+
+</body>
+</html>
