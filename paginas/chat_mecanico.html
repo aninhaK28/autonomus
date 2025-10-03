@@ -27,7 +27,7 @@
             overflow: hidden;
         }
         .chat-header {
-            background-color: #283593;
+            background-color: #007bff;
             color: white;
             padding: 15px;
             border-top-left-radius: 10px;
@@ -50,12 +50,12 @@
             border-radius: 20px;
             line-height: 1.4;
         }
-        .client-message {
+        .contractor-message {
             background-color: #e2e2e2;
             align-self: flex-start;
         }
-        .mechanic-message {
-            background-color: #283593;
+        .worker-message {
+            background-color: #007bff;
             color: white;
             align-self: flex-end;
         }
@@ -72,7 +72,7 @@
             outline: none;
         }
         .chat-input button {
-            background-color: #283593;
+            background-color: #007bff;
             color: white;
             border: none;
             border-radius: 20px;
@@ -82,7 +82,7 @@
             transition: background-color 0.3s;
         }
         .chat-input button:hover {
-            background-color: #1a237e;
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -104,18 +104,16 @@
     const userInput = document.getElementById('user-input');
     const sendButton = document.getElementById('send-button');
 
-    // Conversa pré-definida (cliente x mecânico)
+    // Conversa pré-definida com Mecânico
     const conversation = [
-        { sender: 'client', text: "Olá, vi seu perfil e gostaria de saber se você faz manutenção em carros." },
-        { sender: 'mechanic', text: "Olá! Sim, faço manutenção completa e diagnósticos automotivos." },
-        { sender: 'client', text: "Meu carro está fazendo um barulho estranho no motor e o freio está um pouco duro." },
-        { sender: 'mechanic', text: "Entendi. Pode ser necessário revisar o sistema de freio e verificar o motor. Posso passar aí para avaliar?" },
-        { sender: 'client', text: "Pode sim. Você teria disponibilidade amanhã de manhã?" },
-        { sender: 'mechanic', text: "Tenho sim, posso ir por volta das 9h para fazer a avaliação. Esse horário serve?" },
-        { sender: 'client', text: "Perfeito, serve sim. Quanto fica a avaliação?" },
-        { sender: 'mechanic', text: "A avaliação completa sai por R$120. O conserto depende do que for necessário trocar ou ajustar." },
-        { sender: 'client', text: "Certo, pode vir amanhã então. Obrigada!" },
-        { sender: 'mechanic', text: "Combinado! Até amanhã e vamos deixar seu carro em ordem 🚗🔧" }
+        { sender: 'contractor', text: "Olá, vi seu perfil e preciso de ajuda com meu carro." },
+        { sender: 'worker', text: "Olá! Claro, qual problema você está enfrentando?" },
+        { sender: 'contractor', text: "O carro está fazendo um barulho estranho ao ligar e a marcha não está funcionando direito." },
+        { sender: 'worker', text: "Entendi. Posso agendar uma visita para examinar o veículo e fazer o orçamento." },
+        { sender: 'contractor', text: "Perfeito! Você tem disponibilidade amanhã?" },
+        { sender: 'worker', text: "Sim, posso passar amanhã pela manhã. Esse horário funciona para você?" },
+        { sender: 'contractor', text: "Sim, ótimo! Muito obrigado." },
+        { sender: 'worker', text: "Eu que agradeço. Nos vemos amanhã!" }
     ];
 
     let conversationIndex = 1;
@@ -123,7 +121,7 @@
     function addMessage(text, sender) {
         const messageDiv = document.createElement('div');
         messageDiv.classList.add('message');
-        messageDiv.classList.add(sender === 'client' ? 'client-message' : 'mechanic-message');
+        messageDiv.classList.add(sender === 'contractor' ? 'contractor-message' : 'worker-message');
         messageDiv.textContent = text;
         chatBox.appendChild(messageDiv);
         chatBox.scrollTop = chatBox.scrollHeight;
