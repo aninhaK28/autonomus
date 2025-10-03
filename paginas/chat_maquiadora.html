@@ -27,7 +27,7 @@
             overflow: hidden;
         }
         .chat-header {
-            background-color: #d81b60;
+            background-color: #007bff;
             color: white;
             padding: 15px;
             border-top-left-radius: 10px;
@@ -50,12 +50,12 @@
             border-radius: 20px;
             line-height: 1.4;
         }
-        .client-message {
+        .contractor-message {
             background-color: #e2e2e2;
             align-self: flex-start;
         }
-        .makeup-artist-message {
-            background-color: #d81b60;
+        .worker-message {
+            background-color: #007bff;
             color: white;
             align-self: flex-end;
         }
@@ -72,7 +72,7 @@
             outline: none;
         }
         .chat-input button {
-            background-color: #d81b60;
+            background-color: #007bff;
             color: white;
             border: none;
             border-radius: 20px;
@@ -82,7 +82,7 @@
             transition: background-color 0.3s;
         }
         .chat-input button:hover {
-            background-color: #880e4f;
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -104,18 +104,18 @@
     const userInput = document.getElementById('user-input');
     const sendButton = document.getElementById('send-button');
 
-    // Conversa pré-definida (cliente x maquiadora)
+    // Conversa pré-definida com Maquiadora
     const conversation = [
-        { sender: 'client', text: "Olá, vi seu perfil e achei seu trabalho incrível! Você faz maquiagem para festas?" },
-        { sender: 'makeup-artist', text: "Olá! Muito obrigada 🥰 Faço sim, tanto para festas quanto para eventos especiais." },
-        { sender: 'client', text: "Perfeito! Tenho um casamento para ir no próximo sábado à tarde." },
-        { sender: 'makeup-artist', text: "Que ótimo! Você gostaria de uma maquiagem mais clássica ou mais glamourosa?" },
-        { sender: 'client', text: "Acho que prefiro algo mais elegante, mas sem exagero." },
-        { sender: 'makeup-artist', text: "Entendi, podemos fazer uma pele iluminada, olhos marcados de forma suave e um batom neutro. O que acha?" },
-        { sender: 'client', text: "Adorei a ideia! E quanto fica o valor?" },
-        { sender: 'makeup-artist', text: "A maquiagem social fica R$150 e já inclui preparação completa da pele." },
-        { sender: 'client', text: "Ótimo, pode me agendar então!" },
-        { sender: 'makeup-artist', text: "Combinado 💄✨ Vai arrasar no casamento!" }
+        { sender: 'contractor', text: "Olá, vi seu perfil e gostaria de contratar uma maquiagem para um evento." },
+        { sender: 'worker', text: "Olá! Que ótimo, qual tipo de maquiagem você deseja?" },
+        { sender: 'contractor', text: "É para uma festa à noite, algo elegante e duradouro." },
+        { sender: 'worker', text: "Perfeito! Posso preparar uma maquiagem completa e usar produtos de longa duração." },
+        { sender: 'contractor', text: "Ótimo! Qual horário você tem disponível?" },
+        { sender: 'worker', text: "Tenho disponibilidade amanhã à tarde. Esse horário funciona para você?" },
+        { sender: 'contractor', text: "Sim, ótimo! Quanto tempo leva aproximadamente?" },
+        { sender: 'worker', text: "Cerca de 1 hora, dependendo do estilo que você escolher." },
+        { sender: 'contractor', text: "Perfeito, muito obrigada!" },
+        { sender: 'worker', text: "Eu que agradeço. Nos vemos amanhã!" }
     ];
 
     let conversationIndex = 1;
@@ -123,7 +123,7 @@
     function addMessage(text, sender) {
         const messageDiv = document.createElement('div');
         messageDiv.classList.add('message');
-        messageDiv.classList.add(sender === 'client' ? 'client-message' : 'makeup-artist-message');
+        messageDiv.classList.add(sender === 'contractor' ? 'contractor-message' : 'worker-message');
         messageDiv.textContent = text;
         chatBox.appendChild(messageDiv);
         chatBox.scrollTop = chatBox.scrollHeight;
