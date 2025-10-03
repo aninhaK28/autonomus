@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conversa com Babá</title>
+    <title>Conversa com Baba</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -27,7 +27,7 @@
             overflow: hidden;
         }
         .chat-header {
-            background-color: #28a745;
+            background-color: #007bff;
             color: white;
             padding: 15px;
             border-top-left-radius: 10px;
@@ -50,12 +50,12 @@
             border-radius: 20px;
             line-height: 1.4;
         }
-        .client-message {
+        .contractor-message {
             background-color: #e2e2e2;
             align-self: flex-start;
         }
-        .nanny-message {
-            background-color: #28a745;
+        .worker-message {
+            background-color: #007bff;
             color: white;
             align-self: flex-end;
         }
@@ -72,7 +72,7 @@
             outline: none;
         }
         .chat-input button {
-            background-color: #28a745;
+            background-color: #007bff;
             color: white;
             border: none;
             border-radius: 20px;
@@ -82,7 +82,7 @@
             transition: background-color 0.3s;
         }
         .chat-input button:hover {
-            background-color: #1e7e34;
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -90,7 +90,7 @@
 
 <div class="chat-container">
     <div class="chat-header">
-        Conversa com Babá
+        Conversa com Baba
     </div>
     <div class="chat-box" id="chat-box"></div>
     <div class="chat-input">
@@ -104,38 +104,35 @@
     const userInput = document.getElementById('user-input');
     const sendButton = document.getElementById('send-button');
 
-    // Conversa pré-definida (cliente x babá)
+    // Conversa original com a Baba
     const conversation = [
-        { sender: 'client', text: "Olá, vi seu perfil e gostaria de saber se você está disponível para cuidar do meu filho no fim de semana." },
-        { sender: 'nanny', text: "Olá! Sim, tenho disponibilidade. Qual seria o horário que você precisa?" },
-        { sender: 'client', text: "Seria no sábado à noite, das 19h até umas 23h." },
-        { sender: 'nanny', text: "Perfeito, posso sim nesse horário. Seu filho tem quantos anos?" },
-        { sender: 'client', text: "Ele tem 4 anos, é bem tranquilo e adora brincar com blocos de montar." },
-        { sender: 'nanny', text: "Que ótimo! Já cuidei de crianças dessa idade. Posso levar algumas atividades para entreter ele." },
-        { sender: 'client', text: "Adorei a ideia! E quanto ficaria o valor?" },
-        { sender: 'nanny', text: "Cobrarei R$80 pelo período. Inclui todo o cuidado e brincadeiras com ele." },
-        { sender: 'client', text: "Está ótimo, combinado então. Obrigada!" },
-        { sender: 'nanny', text: "Eu que agradeço pela confiança. Até sábado! 🌸" }
+        { sender: 'contractor', text: "Olá, vi seu perfil e gostaria de conversar sobre cuidar dos meus filhos." },
+        { sender: 'worker', text: "Olá! Claro, será um prazer. Qual a idade das crianças?" },
+        { sender: 'contractor', text: "Tenho uma menina de 3 anos e um menino de 6 anos." },
+        { sender: 'worker', text: "Perfeito, tenho experiência com crianças nessa faixa etária. Qual seria a rotina que você gostaria que eu seguisse com eles?" },
+        { sender: 'contractor', text: "Brincadeiras educativas, ajudar nas refeições e acompanhar nas tarefas escolares do mais velho." },
+        { sender: 'worker', text: "Entendido! Posso também preparar lanches e manter um ambiente seguro e divertido para eles." },
+        { sender: 'contractor', text: "Ótimo! Qual o seu horário disponível?" },
+        { sender: 'worker', text: "Posso trabalhar no período da tarde, das 13h às 18h. Funciona para você?" },
+        { sender: 'contractor', text: "Sim, é perfeito. Muito obrigado!" },
+        { sender: 'worker', text: "Eu que agradeço pela confiança. Será um prazer cuidar deles!" }
     ];
 
     let conversationIndex = 1;
 
-    // Função para adicionar mensagens
     function addMessage(text, sender) {
         const messageDiv = document.createElement('div');
         messageDiv.classList.add('message');
-        messageDiv.classList.add(sender === 'client' ? 'client-message' : 'nanny-message');
+        messageDiv.classList.add(sender === 'contractor' ? 'contractor-message' : 'worker-message');
         messageDiv.textContent = text;
         chatBox.appendChild(messageDiv);
         chatBox.scrollTop = chatBox.scrollHeight;
     }
 
-    // Primeira mensagem aparece ao carregar
     window.onload = () => {
         addMessage(conversation[0].text, conversation[0].sender);
     };
 
-    // Função para exibir mensagens da conversa
     function handleUserInput() {
         if (conversationIndex < conversation.length) {
             const msg = conversation[conversationIndex];
