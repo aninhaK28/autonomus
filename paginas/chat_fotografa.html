@@ -27,7 +27,7 @@
             overflow: hidden;
         }
         .chat-header {
-            background-color: #6a1b9a;
+            background-color: #007bff;
             color: white;
             padding: 15px;
             border-top-left-radius: 10px;
@@ -50,12 +50,12 @@
             border-radius: 20px;
             line-height: 1.4;
         }
-        .client-message {
+        .contractor-message {
             background-color: #e2e2e2;
             align-self: flex-start;
         }
-        .photographer-message {
-            background-color: #6a1b9a;
+        .worker-message {
+            background-color: #007bff;
             color: white;
             align-self: flex-end;
         }
@@ -72,7 +72,7 @@
             outline: none;
         }
         .chat-input button {
-            background-color: #6a1b9a;
+            background-color: #007bff;
             color: white;
             border: none;
             border-radius: 20px;
@@ -82,7 +82,7 @@
             transition: background-color 0.3s;
         }
         .chat-input button:hover {
-            background-color: #4a148c;
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -104,18 +104,17 @@
     const userInput = document.getElementById('user-input');
     const sendButton = document.getElementById('send-button');
 
-    // Conversa pré-definida (cliente x fotógrafa)
+    // Conversa pré-definida com Fotógrafa
     const conversation = [
-        { sender: 'client', text: "Olá, vi seu portfólio e adorei suas fotos! Você faz ensaios de casal?" },
-        { sender: 'photographer', text: "Olá! Muito obrigada 🥰 Faço sim, tanto em estúdio quanto ao ar livre." },
-        { sender: 'client', text: "Que ótimo! Estamos pensando em um ensaio ao pôr do sol, você tem disponibilidade?" },
-        { sender: 'photographer', text: "Tenho sim! O pôr do sol rende fotos lindas. Qual seria a data desejada?" },
-        { sender: 'client', text: "Gostaríamos no próximo sábado à tarde." },
-        { sender: 'photographer', text: "Perfeito, tenho esse horário livre. O ensaio dura cerca de 2 horas." },
-        { sender: 'client', text: "E quanto fica o valor do ensaio?" },
-        { sender: 'photographer', text: "O pacote casal custa R$350, inclui 30 fotos editadas em alta qualidade." },
-        { sender: 'client', text: "Adorei! Pode reservar pra gente então." },
-        { sender: 'photographer', text: "Combinado, será um prazer fotografar vocês 📸✨" }
+        { sender: 'contractor', text: "Olá, vi seu perfil e gostaria de contratar uma sessão de fotos." },
+        { sender: 'worker', text: "Olá! Que legal. Qual tipo de sessão você gostaria?" },
+        { sender: 'contractor', text: "É para uma festa de aniversário, com alguns familiares e amigos." },
+        { sender: 'worker', text: "Perfeito! Posso trazer minha câmera profissional e também algumas lentes para diferentes ângulos." },
+        { sender: 'contractor', text: "Ótimo, qual horário você tem disponível?" },
+        { sender: 'worker', text: "Posso ir no sábado de manhã ou à tarde. Qual horário você prefere?" },
+        { sender: 'contractor', text: "Prefiro à tarde, por volta das 15h." },
+        { sender: 'worker', text: "Combinado! Estarei lá com todo o equipamento. Obrigada pela confiança." },
+        { sender: 'contractor', text: "Obrigado você! Tenho certeza que as fotos ficarão ótimas." }
     ];
 
     let conversationIndex = 1;
@@ -123,7 +122,7 @@
     function addMessage(text, sender) {
         const messageDiv = document.createElement('div');
         messageDiv.classList.add('message');
-        messageDiv.classList.add(sender === 'client' ? 'client-message' : 'photographer-message');
+        messageDiv.classList.add(sender === 'contractor' ? 'contractor-message' : 'worker-message');
         messageDiv.textContent = text;
         chatBox.appendChild(messageDiv);
         chatBox.scrollTop = chatBox.scrollHeight;
