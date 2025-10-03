@@ -5,11 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Autonomus - Encontre Profissionais</title>
     <style>
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             background-color: #f0f8ff;
         }
+
+        a {
+            text-decoration: none;
+        }
+
         .header {
             background-color: #f7a956;
             padding: 15px 20px;
@@ -18,6 +24,7 @@
             justify-content: space-between;
             color: white;
         }
+        
         .header .left-icons, .header .right-icons {
             display: flex;
             gap: 15px;
@@ -32,6 +39,7 @@
             align-items: center;
             justify-content: center;
             font-size: 1.2em;
+            cursor: pointer;
         }
         .header .search-bar {
             flex-grow: 1;
@@ -125,13 +133,53 @@
             gap: 10px;
             border-top: 1px solid #eee;
         }
+
+        .menu {
+            position: absolute;
+            top: 60px;
+            right: 16px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            width: 180px;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .menu a {
+            padding: 12px;
+            text-decoration: none;
+            color: #333;
+            border-bottom: 1px solid #eee;
+        }
+
+        .menu a:hover {
+            background: #f2f2f2;
+        }
+
+        .menu a:last-child {
+            border-bottom: none;
+        }
+
+        .menu.show {
+            display: flex;
+            animation: fadeIn 0.2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
     </style>
 </head>
 <body>
 
     <header class="header">
         <div class="left-icons">
-            <div class="icon">&#128100;</div>
+            <div onclick="abrirPerfil()" class="icon">&#128100;</div>
         </div>
         <div class="search-bar">
             <span class="icon">&#128269;</span>
@@ -140,7 +188,14 @@
         </div>
         <div class="logo">Autonomus</div>
         <div class="right-icons">
-          <div class="icon" onclick="window.location.href="file:content://com.android.fileexplorer.myprovider/external_files/Autonomus%20/autonomus-main%20(7)/autonomus-main/paginas/suporte.html'">&#9776;</div>
+            <div class="icon" id="menuToggle">&#9776;</div>
+            
+                <nav class="menu" id="menu">
+                    <a href="./suporte.html">Suporte</a>
+                    <a id="sairPerfil">Sair do perfil</a>
+                </nav>
+        </div>
+  </nav>
     </header>
 
     <section>
@@ -148,46 +203,77 @@
             <h2>Trabalhadores na sua região</h2>
         </div>
        <div class="profiles-container">
-            <div class="profile-card" onclick="rafa('manicure')">
-                <img src="https://i.pinimg.com/564x/6b/29/cb/6b29cb635877a0964f18e94f2fdc6ff5.jpg" alt="Manicure Profile Picture">
-                <p>Manicure</p>
-            </div>
-            <div class="profile-card" onclick="rafa('jardineiro')">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/P%C3%A9ricles_-_Lady_Night_-_2025.jpg/250px-P%C3%A9ricles_-_Lady_Night_-_2025.jpg" alt="Jardineiro Profile Picture">
-                <p>Jardineiro</p>
-            </div>
-            <div class="profile-card" onclick="rafa('fotografa')">
-                <img src="https://www.bnews.com.br/media/_versions/maio_2025/capas-11_d0vgjqs0_widelg_widemd.jpg" alt="Fotógrafa Profile Picture">
-                <p>Fotógrafa</p>
-            </div>
-            <div class="profile-card" onclick="rafa('mecanico')">
-                <img src="https://br.web.img3.acsta.net/pictures/202/447/20244728_20130917114825223.jpg" alt="Mecânico Profile Picture">
-                <p>Mecânico</p>
-            </div>
-            <div class="profile-card" onclick="rafa('maquiadora')">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCGj8b3DZ9-erdXWK2qKT5zaXaQ3TQFA4PVSzAomEY_d2qNlHrU3nfDzofCmdRb0ALYd0&usqp=CAU" alt="Maquiadora Profile Picture">
-                <p>Maquiadora</p>
-            </div>
-            <div class="profile-card" onclick="rafa('eletricista')">
-                <img src="https://conteudo.imguol.com.br/c/entretenimento/67/2021/02/09/bbb-21-fiuk-preocupa-pela-aparencia-1612883015462_v2_450x450.jpg" alt="Eletricista Profile Picture">
-                <p>Eletricista</p>
-            </div>
-            <div class="profile-card" onclick="rafa('costureira')">
-                <img src="https://f.i.uol.com.br/fotografia/2019/11/25/15747303665ddc7a7e36d20_1574730366_3x2_md.jpg" alt="Costureira Profile Picture">
-                <p>Costureira</p>
-            </div>
-            <div class="profile-card" onclick="rafa('doméstica')">
-                <img src="https://folhaextra.com/images/noticias/34071/092fd98bbfa0007baebdbb4f14dcab02.webp" alt="Doméstica Profile Picture">
-                <p>Doméstica</p>
-            </div>  
-            <div class="profile-card" onclick="rafa('servente de pedreiro')">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Raul_Gil_%28cropped%29.jpg/250px-Raul_Gil_%28cropped%29.jpg" alt="Servente de Pedreiro Profile Picture">
-                <p>Servente de Pedreiro</p>
-            </div> 
-            <div class="profile-card" onclick="rafa('baba')">
-                <img src="https://aventurasnahistoria.com.br/wp-content/uploads/hard_news/design_sem_nome_-_2023-02-28t091317.129.jpg" alt="Babá Profile Picture">
-                <p>Babá</p>
-            </div>
+
+            <a href="./perfil_manicure.html">
+                <div class="profile-card" onclick="rafa('manicure')">
+                    <img src="https://i.pinimg.com/564x/6b/29/cb/6b29cb635877a0964f18e94f2fdc6ff5.jpg" alt="Manicure Profile Picture">
+                    <p>Manicure</p>
+                </div>
+            </a>
+
+            <a href="./perfil_jardineiro.html">
+                <div class="profile-card" onclick="rafa('jardineiro')">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/P%C3%A9ricles_-_Lady_Night_-_2025.jpg/250px-P%C3%A9ricles_-_Lady_Night_-_2025.jpg" alt="Jardineiro Profile Picture">
+                    <p>Jardineiro</p>
+                </div>
+            </a>
+
+            <a href="./perfil_fotografa.html">
+                <div class="profile-card" onclick="rafa('fotografa')">
+                    <img src="https://www.bnews.com.br/media/_versions/maio_2025/capas-11_d0vgjqs0_widelg_widemd.jpg" alt="Fotógrafa Profile Picture">
+                    <p>Fotógrafa</p>
+                </div>
+            </a>
+
+            <a href="./perfil_mecanico.html">
+                <div class="profile-card" onclick="rafa('mecanico')">
+                    <img src="https://br.web.img3.acsta.net/pictures/202/447/20244728_20130917114825223.jpg" alt="Mecânico Profile Picture">
+                    <p>Mecânico</p>
+                </div>
+            </a>
+
+            <a href="./perfil_maquiadora.html">
+                <div class="profile-card" onclick="rafa('maquiadora')">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCGj8b3DZ9-erdXWK2qKT5zaXaQ3TQFA4PVSzAomEY_d2qNlHrU3nfDzofCmdRb0ALYd0&usqp=CAU" alt="Maquiadora Profile Picture">
+                    <p>Maquiadora</p>
+                </div>
+            </a>
+
+            <a href="./perfil_eletricista.html">
+                <div class="profile-card" onclick="rafa('eletricista')">
+                    <img src="https://conteudo.imguol.com.br/c/entretenimento/67/2021/02/09/bbb-21-fiuk-preocupa-pela-aparencia-1612883015462_v2_450x450.jpg" alt="Eletricista Profile Picture">
+                    <p>Eletricista</p>
+                </div>
+            </a>
+
+            <a href="./perfil_costureira.html">
+                <div class="profile-card" onclick="rafa('costureira')">
+                    <img src="https://f.i.uol.com.br/fotografia/2019/11/25/15747303665ddc7a7e36d20_1574730366_3x2_md.jpg" alt="Costureira Profile Picture">
+                    <p>Costureira</p>
+                </div>
+            </a>
+
+            <a href="./perfil_domestica.html">
+                <div class="profile-card" onclick="rafa('domestica')">
+                    <img src="https://folhaextra.com/images/noticias/34071/092fd98bbfa0007baebdbb4f14dcab02.webp" alt="Doméstica Profile Picture">
+                    <p>Doméstica</p>
+                </div>  
+            </a>
+
+            <a href="./perfil_serventedepedreiro.html">
+                <div class="profile-card" onclick="rafa('servente de pedreiro')">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Raul_Gil_%28cropped%29.jpg/250px-Raul_Gil_%28cropped%29.jpg" alt="Servente de Pedreiro Profile Picture">
+                    <p>Servente de Pedreiro</p>
+                </div> 
+            </a>
+
+            <a href="./perfil_baba.html">
+                <div class="profile-card" onclick="rafa('baba')">
+                    <img src="https://aventurasnahistoria.com.br/wp-content/uploads/hard_news/design_sem_nome_-_2023-02-28t091317.129.jpg" alt="Babá Profile Picture">
+                    <p>Babá</p>
+                </div>
+            </a>
+
         </div>
     </section>
 
@@ -203,76 +289,107 @@ pesq.addEventListener('keydown', function(e){
     let valor = pesq.value.toLowerCase().trim();
 
     if(valor === "manicure"){
-      window.location.href = "paginas/perfil_manicure.html";
+      window.location.href = "./perfil_manicure.html";
     }
     if(valor === "jardineiro"){
-      window.location.href = "paginas/perfil_jardineiro.html";      
+      window.location.href = "./perfil_jardineiro.html";      
     }
     if(valor === "fotografa"){
-      window.location.href = "paginas/perfil_fotografa.html";
+      window.location.href = "./perfil_fotografa.html";
     }
     if(valor === "mecanico"){
-      window.location.href = "paginas/perfil_mecanico.html";
+      window.location.href = "./perfil_mecanico.html";
     }
     if(valor === "maquiadora"){
-      window.location.href = "paginas/perfil_maquiadora.html";
+      window.location.href = "./perfil_maquiadora.html";
     }
     if(valor === "eletricista"){
-      window.location.href = "paginas/perfil_eletricista.html";
+      window.location.href = "./perfil_eletricista.html";
     }
     if(valor === "costureira"){
-      window.location.href = "paginas/perfil_costureira.html";
+      window.location.href = "./perfil_costureira.html";
     }
     if(valor === "servente de pedreiro"){
-      window.location.href = "paginas/perfil_serventedepedreiro.html";
+      window.location.href = "./perfil_serventedepedreiro.html";
     }
     if(valor === "baba"){
-      window.location.href = "paginas/perfil_baba.html";
+      window.location.href = "./perfil_baba.html";
     }
     if(valor === "doméstica" || valor === "domestica"){
-      window.location.href = "paginas/perfil_domestica.html";
+      window.location.href = "./perfil_domestica.html";
     }
   }
 });
 
     function rafa(pagina){
         if(pagina == "manicure"){
-            window.location.href = "file:///tmp/.fr-1uaBaV/autonomus-main/paginas/perfil_manicure.html"
+            window.location.href = "./perfil_manicure.html"
         }
         if(pagina == "jardineiro"){
-            window.location.href = "file:///tmp/.fr-bJ6DGU/autonomus-main/paginas/perfil_jardineiro.html"
+            window.location.href = "./perfil_jardineiro.html"
         }
         
         if(pagina == "fotografa"){
-            window.location.href = "file:///tmp/.fr-PDkdTS/autonomus-main/paginas/perfil_fotografa.html"
+            window.location.href = "./perfil_fotografa.html"
         }    
         
         if(pagina == "mecanico"){
-            window.location.href = "file:///tmp/.fr-YfCzvT/autonomus-main/paginas/perfil_mecanico.html"
+            window.location.href = "./perfil_mecanico.html"
         }    
         
         if(pagina == "maquiadora"){
-            window.location.href = "file:///tmp/.fr-1s1fCS/autonomus-main/paginas/perfil_maquiadora.html" 
+            window.location.href = "./perfil_maquiadora.html" 
         }
         
         if(pagina == "eletricista"){
-            window.location.href = "file:///tmp/.fr-9xzXBV/autonomus-main/paginas/perfil_eletricista.html"
+            window.location.href = "./perfil_eletricista.html"
         }
 
         if(pagina == "costureira"){
-            window.location.href = "file:///tmp/.fr-cRILkU/autonomus-main/paginas/perfil_costureira.html"
+            window.location.href = "./perfil_costureira.html"
         }
 
         if(pagina == "domestica"){
-            window.location.href = "file:///tmp/.fr-icjerS/autonomus-main/paginas/perfil_domestica.html"
+            window.location.href = "./perfil_domestica.html"
         }
 
         if(pagina == "servente de pedreiro"){
-            window.location.href = "file:///tmp/.fr-6JTSSS/autonomus-main/paginas/perfil_serventedepedreiro.html"
+            window.location.href = "./perfil_serventedepedreiro.html"
         }
         if(pagina == "baba"){
-            window.location.href = "file:///tmp/.fr-rtbcaR/autonomus-main/paginas/perfil_baba.html"
+            window.location.href = "./perfil_baba.html"
         }
     }
+
+        function abrirPerfil() {
+     
+        let perfil = localStorage.getItem("perfil");
+
+        if (perfil === "contratante") {
+            window.location.href = "./perfil_contratante.html";
+        } else if (perfil === "contratado") {
+            window.location.href = "./perfil_trabalhador.html";
+    }
+}
+
+    const btn = document.getElementById('menuToggle');
+    const menu = document.getElementById('menu');
+
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('show');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!menu.contains(e.target) && !btn.contains(e.target)) {
+        menu.classList.remove('show');
+      }
+    });
+
+    //sair dos perfis
+    document.getElementById("sairPerfil").addEventListener("click", () => {
+    localStorage.removeItem("perfil");
+
+    window.location.href = "./escolha_inicial.html";
+});
 </script>        
 </html>

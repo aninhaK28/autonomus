@@ -215,7 +215,11 @@
 <body>
     <div class="container">
         <header class="header">
-            <i class="fas fa-arrow-left arrow-back"></i>
+
+            <a href="./inicial.html">
+                <i class="fas fa-arrow-left arrow-back"></i>
+            </a>
+
             <h1>Perfil</h1>
             <i class="fas fa-bars menu-icon"></i>
         </header>
@@ -282,8 +286,14 @@
                     </li>
                 </ul>
             </div>
-            <button class="chat-button">CONVERSAR</button>
+            <button class="chat-button" id="btnConversar">CONVERSAR</button>
         </main>
     </div>
+
+<script>
+    document.getElementById("btnConversar").addEventListener("click", () => {
+    window.location.href = "./chat_de_conversas.html";
+  });
+</script>
 </body>
 </html>

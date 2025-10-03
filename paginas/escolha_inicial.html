@@ -15,6 +15,7 @@
             margin: 0;
             background: linear-gradient(to bottom, #FFFFFF 50%, #2796d6 50%);
         }
+
         header {
             width: 100%;
             background-color: #f8f8f8; /* Light background for the header */
@@ -25,6 +26,11 @@
             color: #333;
             font-weight: bold;
         }
+
+        a {
+            text-decoration: none;
+        }
+
         .container {
             background-color: #ffffff;
             padding: 50px;
@@ -40,17 +46,20 @@
             align-items: center;
             margin: 20px 0; /* Add some vertical margin */
         }
+
         h1 {
             color: #333;
             margin-bottom: 40px;
             font-size: 2.5em;
         }
+
         .options {
             display: flex;
             gap: 30px;
             justify-content: center;
             flex-wrap: wrap;
         }
+
         .option-box {
             background-color: #ff9900;
             color: white;
@@ -65,21 +74,25 @@
             align-items: center;
             justify-content: center;
         }
+
         .option-box:hover {
             background-color: #e68a00;
         }
+
         .option-box img {
             width: 120px;
             height: 120px;
             margin-bottom: 25px;
             filter: invert(100%);
         }
+
         .option-box p {
             font-size: 1.6em;
             font-weight: bold;
             margin: 0;
             line-height: 1.3;
         }
+
         footer {
             width: 100%;
             background-color: #333; /* Dark background for the footer */
@@ -89,6 +102,7 @@
             font-size: 0.9em;
             box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
         }
+
     </style>
 </head>
 <body>
@@ -97,29 +111,38 @@
     </header>
 
     <div class="container">
+
         <h1>Escolha seu Perfil de Login</h1>
+
         <div class="options">
-            <div onclick="trabalhador()" class="option-box">
-                <img src="https://static.vecteezy.com/system/resources/previews/015/119/100/non_2x/businessman-icon-man-icon-design-illustration-free-png.png" alt="Ícone de trabalhador" width="250px">
-                <p>À procura de um trabalhador</p>
-            </div>
-            <div onclick="trabalho()"  class="option-box">
-                <img src="https://cdn-icons-png.flaticon.com/512/782/782899.png" alt="Ícone de contratante" width="250px">
-                <p>À procura de um trabalho</p>
-            </div>
+
+            <a  onclick="escolherPerfil('contratado')" href="./login_trabalhador.html"> <!--Mudar caso não esteja funcionando, apenas digite "./" no código e procure a página referente-->
+                <div class="option-box">
+                    <img src="https://static.vecteezy.com/system/resources/previews/015/119/100/non_2x/businessman-icon-man-icon-design-illustration-free-png.png" alt="Ícone de trabalhador" width="250px">
+                    <p>À procura de um trabalhador</p>
+                </div>
+            </a>
+
+            <a  onclick="escolherPerfil('contratante')" href="./login_contratante.html"> <!--Mudar caso não esteja funcionando, apenas digite "./" no código e procure a página referente-->
+                <div class="option-box">
+                    <img src="https://cdn-icons-png.flaticon.com/512/782/782899.png" alt="Ícone de contratante" width="250px">
+                    <p>À procura de um trabalho</p>
+                </div>
+            </a>
+
         </div>
+
     </div>
 
     <footer>
         &copy; 2025 Sua Empresa. Todos os direitos reservados.
     </footer>
+
     <script>
-    function trabalhador(){
-        window.location.href = "file:///tmp/.fr-Gbj3xC/autonomus-main/paginas/login_contratante.html"
-        }
-    function trabalho(){
-            window.location.href = "file:///tmp/.fr-bZck1B/autonomus-main/paginas/login_trabalhador.html"
-        }
-</script>    
+        function escolherPerfil(tipo) {
+     
+        localStorage.setItem("perfil", tipo);
+    }
+    </script>
 </body>
 </html>

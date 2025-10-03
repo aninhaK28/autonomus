@@ -102,9 +102,14 @@
         alert('CPF inválido. Insira 11 dígitos ou 000.000.000-00')
         return
       }
+
       resultado.hidden = false
       resultado.textContent = JSON.stringify(dados, null, 2)
-      try{ localStorage.setItem('perfilContratante', JSON.stringify(dados)) }catch(e){}
+
+      try{ localStorage.setItem('perfilContratante', JSON.stringify(dados))
+       }catch(e){}
+
+      window.location.href = "./inicial.html"  
     })
 
     limpar.addEventListener('click', ()=>{
