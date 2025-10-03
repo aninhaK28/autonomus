@@ -27,7 +27,7 @@
             overflow: hidden;
         }
         .chat-header {
-            background-color: #2e7d32;
+            background-color: #007bff;
             color: white;
             padding: 15px;
             border-top-left-radius: 10px;
@@ -50,12 +50,12 @@
             border-radius: 20px;
             line-height: 1.4;
         }
-        .client-message {
+        .contractor-message {
             background-color: #e2e2e2;
             align-self: flex-start;
         }
-        .gardener-message {
-            background-color: #2e7d32;
+        .worker-message {
+            background-color: #007bff;
             color: white;
             align-self: flex-end;
         }
@@ -72,7 +72,7 @@
             outline: none;
         }
         .chat-input button {
-            background-color: #2e7d32;
+            background-color: #007bff;
             color: white;
             border: none;
             border-radius: 20px;
@@ -82,7 +82,7 @@
             transition: background-color 0.3s;
         }
         .chat-input button:hover {
-            background-color: #1b5e20;
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -104,18 +104,16 @@
     const userInput = document.getElementById('user-input');
     const sendButton = document.getElementById('send-button');
 
-    // Conversa pré-definida (cliente x jardineiro)
+    // Conversa pré-definida com Jardineiro
     const conversation = [
-        { sender: 'client', text: "Olá, vi seu perfil e gostei do seu trabalho como jardineiro. Você faz manutenção em jardins residenciais?" },
-        { sender: 'gardener', text: "Olá! Sim, faço sim. Posso cuidar da poda, limpeza e adubação do jardim." },
-        { sender: 'client', text: "Perfeito, meu jardim está precisando de uma boa manutenção, a grama já está bem alta." },
-        { sender: 'gardener', text: "Entendi. Posso passar aí para avaliar e já deixar tudo em ordem. Prefere grama só aparada ou também tratamento para ficar mais verde?" },
-        { sender: 'client', text: "Gostaria dos dois, se possível." },
-        { sender: 'gardener', text: "Sem problemas! Posso ir amanhã pela manhã, pode ser?" },
-        { sender: 'client', text: "Pode sim, estarei em casa." },
-        { sender: 'gardener', text: "Ótimo! Aproveito e trago alguns fertilizantes para revitalizar suas plantas." },
-        { sender: 'client', text: "Excelente, muito obrigado pelo cuidado." },
-        { sender: 'gardener', text: "Eu que agradeço a confiança 🌿 Vai ficar tudo lindo!" }
+        { sender: 'contractor', text: "Olá, vi que você trabalha como jardineiro e preciso de ajuda com o jardim." },
+        { sender: 'worker', text: "Olá! Claro, posso ajudar. Qual tipo de serviço você precisa?" },
+        { sender: 'contractor', text: "Preciso cortar a grama, podar algumas árvores e plantar algumas flores." },
+        { sender: 'worker', text: "Perfeito! Posso ir até sua casa avaliar o espaço e já começar os trabalhos." },
+        { sender: 'contractor', text: "Ótimo! Você tem disponibilidade amanhã de manhã?" },
+        { sender: 'worker', text: "Tenho sim, podemos agendar para as 8h da manhã." },
+        { sender: 'contractor', text: "Perfeito, combinado! Muito obrigado." },
+        { sender: 'worker', text: "Eu que agradeço! Até amanhã." }
     ];
 
     let conversationIndex = 1;
@@ -123,7 +121,7 @@
     function addMessage(text, sender) {
         const messageDiv = document.createElement('div');
         messageDiv.classList.add('message');
-        messageDiv.classList.add(sender === 'client' ? 'client-message' : 'gardener-message');
+        messageDiv.classList.add(sender === 'contractor' ? 'contractor-message' : 'worker-message');
         messageDiv.textContent = text;
         chatBox.appendChild(messageDiv);
         chatBox.scrollTop = chatBox.scrollHeight;
