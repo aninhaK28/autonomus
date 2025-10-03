@@ -27,7 +27,7 @@
             overflow: hidden;
         }
         .chat-header {
-            background-color: #00695c;
+            background-color: #007bff;
             color: white;
             padding: 15px;
             border-top-left-radius: 10px;
@@ -50,12 +50,12 @@
             border-radius: 20px;
             line-height: 1.4;
         }
-        .client-message {
+        .contractor-message {
             background-color: #e2e2e2;
             align-self: flex-start;
         }
-        .plumber-message {
-            background-color: #00695c;
+        .worker-message {
+            background-color: #007bff;
             color: white;
             align-self: flex-end;
         }
@@ -72,7 +72,7 @@
             outline: none;
         }
         .chat-input button {
-            background-color: #00695c;
+            background-color: #007bff;
             color: white;
             border: none;
             border-radius: 20px;
@@ -82,7 +82,7 @@
             transition: background-color 0.3s;
         }
         .chat-input button:hover {
-            background-color: #004d40;
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -104,18 +104,16 @@
     const userInput = document.getElementById('user-input');
     const sendButton = document.getElementById('send-button');
 
-    // Conversa pré-definida (cliente x encanador)
+    // Conversa pré-definida com Encanador
     const conversation = [
-        { sender: 'client', text: "Olá, vi seu perfil e preciso de ajuda com um vazamento na cozinha." },
-        { sender: 'plumber', text: "Olá! Claro, posso verificar o vazamento e fazer o conserto. Onde fica o problema?" },
-        { sender: 'client', text: "É na pia da cozinha, a água está pingando constantemente." },
-        { sender: 'plumber', text: "Entendi. Pode ser o sifão ou a torneira com problema. Posso ir aí para avaliar." },
-        { sender: 'client', text: "Pode sim. Você teria disponibilidade amanhã de manhã?" },
-        { sender: 'plumber', text: "Tenho sim, posso passar por volta das 9h. Esse horário funciona?" },
-        { sender: 'client', text: "Perfeito, serve sim. Quanto custa a visita?" },
-        { sender: 'plumber', text: "A visita técnica custa R$80, e o conserto depende do que for necessário trocar ou reparar." },
-        { sender: 'client', text: "Certo, pode vir amanhã então. Obrigado!" },
-        { sender: 'plumber', text: "Combinado! Até amanhã 🔧💧" }
+        { sender: 'contractor', text: "Olá, vi seu perfil e preciso de um encanador para consertar um vazamento." },
+        { sender: 'worker', text: "Olá! Claro, posso ajudar. Onde está o vazamento?" },
+        { sender: 'contractor', text: "Está na cozinha, embaixo da pia." },
+        { sender: 'worker', text: "Entendi. Posso ir até sua casa amanhã de manhã para verificar e consertar." },
+        { sender: 'contractor', text: "Perfeito! Qual horário você pode passar?" },
+        { sender: 'worker', text: "Posso às 9h, tudo bem para você?" },
+        { sender: 'contractor', text: "Sim, ótimo. Muito obrigado!" },
+        { sender: 'worker', text: "Eu que agradeço! Nos vemos amanhã." }
     ];
 
     let conversationIndex = 1;
@@ -123,7 +121,7 @@
     function addMessage(text, sender) {
         const messageDiv = document.createElement('div');
         messageDiv.classList.add('message');
-        messageDiv.classList.add(sender === 'client' ? 'client-message' : 'plumber-message');
+        messageDiv.classList.add(sender === 'contractor' ? 'contractor-message' : 'worker-message');
         messageDiv.textContent = text;
         chatBox.appendChild(messageDiv);
         chatBox.scrollTop = chatBox.scrollHeight;
