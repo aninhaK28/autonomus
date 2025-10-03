@@ -27,7 +27,7 @@
             overflow: hidden;
         }
         .chat-header {
-            background-color: #8e24aa;
+            background-color: #007bff;
             color: white;
             padding: 15px;
             border-top-left-radius: 10px;
@@ -54,8 +54,8 @@
             background-color: #e2e2e2;
             align-self: flex-start;
         }
-        .pastor-message {
-            background-color: #8e24aa;
+        .worker-message {
+            background-color: #007bff;
             color: white;
             align-self: flex-end;
         }
@@ -72,7 +72,7 @@
             outline: none;
         }
         .chat-input button {
-            background-color: #8e24aa;
+            background-color: #007bff;
             color: white;
             border: none;
             border-radius: 20px;
@@ -82,7 +82,7 @@
             transition: background-color 0.3s;
         }
         .chat-input button:hover {
-            background-color: #5e1180;
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -107,13 +107,13 @@
     // Conversa pré-definida (cliente x pastora)
     const conversation = [
         { sender: 'client', text: "Olá, pastora! Gostaria de saber se você poderia ministrar em um culto especial em nossa igreja." },
-        { sender: 'pastor', text: "Olá! Que alegria receber seu convite 🙏 Posso sim. Qual seria o tema ou o foco do culto?" },
+        { sender: 'worker', text: "Olá! Que alegria receber seu convite 🙏 Posso sim. Qual seria o tema ou o foco do culto?" },
         { sender: 'client', text: "Será um culto de mulheres no próximo sábado à tarde, gostaríamos de uma mensagem inspiradora sobre fé e perseverança." },
-        { sender: 'pastor', text: "Perfeito! Posso preparar uma mensagem edificante e incluir uma oração final para o momento." },
+        { sender: 'worker', text: "Perfeito! Posso preparar uma mensagem edificante e incluir uma oração final para o momento." },
         { sender: 'client', text: "Maravilha! Qual seria seu horário de chegada para se preparar antes do culto?" },
-        { sender: 'pastor', text: "Consigo chegar uma hora antes do início do culto, assim posso me ambientar e ajustar tudo para a pregação." },
+        { sender: 'worker', text: "Consigo chegar uma hora antes do início do culto, assim posso me ambientar e ajustar tudo para a pregação." },
         { sender: 'client', text: "Excelente! Estamos muito felizes com sua participação." },
-        { sender: 'pastor', text: "Obrigada pela confiança 🙏 Que Deus abençoe nosso encontro!" }
+        { sender: 'worker', text: "Obrigada pela confiança 🙏 Que Deus abençoe nosso encontro!" }
     ];
 
     let conversationIndex = 1;
@@ -121,7 +121,7 @@
     function addMessage(text, sender) {
         const messageDiv = document.createElement('div');
         messageDiv.classList.add('message');
-        messageDiv.classList.add(sender === 'client' ? 'client-message' : 'pastor-message');
+        messageDiv.classList.add(sender === 'client' ? 'client-message' : 'worker-message');
         messageDiv.textContent = text;
         chatBox.appendChild(messageDiv);
         chatBox.scrollTop = chatBox.scrollHeight;
