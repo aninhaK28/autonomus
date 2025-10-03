@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Trabalhador</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #40a4e7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d8c621;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        /* Estilo para o campo de arquivo (file) */
+        .form-group input[type="file"] {
+            border: 1px solid #ebe858;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .link-cadastro {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Criar Perfil de Trabalhador</h2>
+    <form action="./inicial.html" method="get" enctype="multipart/form-data"> <!--Mude o "action" para o caminho certo caso não esteja funcionando-->
+        
+        <div class="form-group">
+            <label for="nome">Nome Completo</label>
+            <input type="text" id="nome" name="nome" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" name="senha" required>
+        </div>
+
+        <div class="form-group">
+            <label for="trabalho">Qual trabalho eu ofereço?</label>
+            <textarea id="trabalho" name="trabalho" placeholder="Ex: 'Sou pedreiro com 10 anos de experiência, especialista em acabamento e alvenaria...'" required></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="fotos">Fotos de trabalhos (opcional)</label>
+            <input type="file" id="fotos" name="fotos[]" multiple>
+        </div>
+
+        <div class="form-group">
+            <label for="curriculo">Carregar currículo (opcional)</label>
+            <input type="file" id="curriculo" name="curriculo" accept=".pdf,.doc,.docx">
+        </div>
+
+        <div class="form-group">
+            <label for="formacoes">Formações e qualificações</label>
+            <textarea id="formacoes" name="formacoes" placeholder="Ex: 'Curso Técnico em Elétrica, Certificação em Solda...'" required></textarea>
+        </div>
+
+        <button type="submit" class="btn">Cadastrar Perfil</button>
+
+    </form>
+    
+</div>
+
+</body>
+</html>
