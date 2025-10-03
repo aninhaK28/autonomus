@@ -111,4 +111,45 @@
         { sender: 'client', text: "Meu carro está fazendo um barulho estranho no motor e o freio está um pouco duro." },
         { sender: 'mechanic', text: "Entendi. Pode ser necessário revisar o sistema de freio e verificar o motor. Posso passar aí para avaliar?" },
         { sender: 'client', text: "Pode sim. Você teria disponibilidade amanhã de manhã?" },
-        { sender: 'mechanic', text: "Tenho sim, posso ir por volta das 9h para fazer a avaliaçã
+        { sender: 'mechanic', text: "Tenho sim, posso ir por volta das 9h para fazer a avaliação. Esse horário serve?" },
+        { sender: 'client', text: "Perfeito, serve sim. Quanto fica a avaliação?" },
+        { sender: 'mechanic', text: "A avaliação completa sai por R$120. O conserto depende do que for necessário trocar ou ajustar." },
+        { sender: 'client', text: "Certo, pode vir amanhã então. Obrigada!" },
+        { sender: 'mechanic', text: "Combinado! Até amanhã e vamos deixar seu carro em ordem 🚗🔧" }
+    ];
+
+    let conversationIndex = 1;
+
+    function addMessage(text, sender) {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message');
+        messageDiv.classList.add(sender === 'client' ? 'client-message' : 'mechanic-message');
+        messageDiv.textContent = text;
+        chatBox.appendChild(messageDiv);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    window.onload = () => {
+        addMessage(conversation[0].text, conversation[0].sender);
+    };
+
+    function handleUserInput() {
+        if (conversationIndex < conversation.length) {
+            const msg = conversation[conversationIndex];
+            addMessage(msg.text, msg.sender);
+            conversationIndex++;
+        } else {
+            userInput.disabled = true;
+            sendButton.disabled = true;
+            userInput.placeholder = "Conversa finalizada.";
+        }
+    }
+
+    sendButton.addEventListener('click', handleUserInput);
+    userInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') handleUserInput();
+    });
+</script>
+
+</body>
+</html>
