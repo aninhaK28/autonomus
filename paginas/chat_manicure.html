@@ -27,7 +27,7 @@
             overflow: hidden;
         }
         .chat-header {
-            background-color: #e83e8c;
+            background-color: #007bff;
             color: white;
             padding: 15px;
             border-top-left-radius: 10px;
@@ -50,12 +50,12 @@
             border-radius: 20px;
             line-height: 1.4;
         }
-        .client-message {
+        .contractor-message {
             background-color: #e2e2e2;
             align-self: flex-start;
         }
-        .manicure-message {
-            background-color: #e83e8c;
+        .worker-message {
+            background-color: #007bff;
             color: white;
             align-self: flex-end;
         }
@@ -72,7 +72,7 @@
             outline: none;
         }
         .chat-input button {
-            background-color: #e83e8c;
+            background-color: #007bff;
             color: white;
             border: none;
             border-radius: 20px;
@@ -82,7 +82,7 @@
             transition: background-color 0.3s;
         }
         .chat-input button:hover {
-            background-color: #c2185b;
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -104,38 +104,33 @@
     const userInput = document.getElementById('user-input');
     const sendButton = document.getElementById('send-button');
 
-    // Conversa pré-definida (cliente x manicure)
+    // Conversa pré-definida com Manicure
     const conversation = [
-        { sender: 'client', text: "Olá, vi seu perfil e adorei suas unhas decoradas! Você tem horário essa semana?" },
-        { sender: 'manicure', text: "Olá! Que bom que gostou do meu trabalho 😍. Sim, tenho alguns horários disponíveis, qual dia você prefere?" },
-        { sender: 'client', text: "Eu gostaria de fazer alongamento e esmaltação em gel, pode ser na sexta?" },
-        { sender: 'manicure', text: "Perfeito, sexta tenho vaga às 14h. Pode ser esse horário?" },
-        { sender: 'client', text: "Sim, está ótimo. Quanto fica o valor?" },
-        { sender: 'manicure', text: "O alongamento com esmaltação em gel sai por R$120. Inclui nail art simples, se quiser." },
-        { sender: 'client', text: "Ah, adorei! Quero sim com decoração. 😃" },
-        { sender: 'manicure', text: "Então está combinado! Vou deixar seu horário reservado para sexta às 14h." },
-        { sender: 'client', text: "Obrigada, até lá!" },
-        { sender: 'manicure', text: "Eu que agradeço 💅. Até sexta!" }
+        { sender: 'contractor', text: "Olá, vi seu perfil e gostaria de marcar uma manicure." },
+        { sender: 'worker', text: "Olá! Claro, qual dia e horário você gostaria?" },
+        { sender: 'contractor', text: "Pode ser amanhã à tarde, se tiver disponibilidade." },
+        { sender: 'worker', text: "Tenho sim! Você prefere esmalte tradicional ou algo mais artístico?" },
+        { sender: 'contractor', text: "Quero algo simples, só esmalte tradicional mesmo." },
+        { sender: 'worker', text: "Perfeito, então te aguardo amanhã às 15h. Posso levar todos os materiais." },
+        { sender: 'contractor', text: "Combinado! Muito obrigada." },
+        { sender: 'worker', text: "Eu que agradeço! Até amanhã." }
     ];
 
     let conversationIndex = 1;
 
-    // Função para adicionar mensagens
     function addMessage(text, sender) {
         const messageDiv = document.createElement('div');
         messageDiv.classList.add('message');
-        messageDiv.classList.add(sender === 'client' ? 'client-message' : 'manicure-message');
+        messageDiv.classList.add(sender === 'contractor' ? 'contractor-message' : 'worker-message');
         messageDiv.textContent = text;
         chatBox.appendChild(messageDiv);
         chatBox.scrollTop = chatBox.scrollHeight;
     }
 
-    // Primeira mensagem aparece ao carregar
     window.onload = () => {
         addMessage(conversation[0].text, conversation[0].sender);
     };
 
-    // Função para exibir mensagens da conversa
     function handleUserInput() {
         if (conversationIndex < conversation.length) {
             const msg = conversation[conversationIndex];
