@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversa com Pastora</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .chat-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            height: 70vh;
+            overflow: hidden;
+        }
+        .chat-header {
+            background-color: #8e24aa;
+            color: white;
+            padding: 15px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .chat-box {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .message {
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 20px;
+            line-height: 1.4;
+        }
+        .client-message {
+            background-color: #e2e2e2;
+            align-self: flex-start;
+        }
+        .pastor-message {
+            background-color: #8e24aa;
+            color: white;
+            align-self: flex-end;
+        }
+        .chat-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+        .chat-input input {
+            flex-grow: 1;
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            outline: none;
+        }
+        .chat-input button {
+            background-color: #8e24aa;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .chat-input button:hover {
+            background-color: #5e1180;
+        }
+    </style>
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="chat-header">
+        Conversa com Pastora
+    </div>
+    <div class="chat-box" id="chat-box"></div>
+    <div class="chat-input">
+        <input type="text" id="user-input" placeholder="Clique em Enviar para continuar...">
+        <button id="send-button">Enviar</button>
+    </div>
+</div>
+
+<script>
+    const chatBox = document.getElementById('chat-box');
+    const userInput = document.getElementById('user-input');
+    const sendButton = document.getElementById('send-button');
+
+    // Conversa pré-definida (cliente x pastora)
+    const conversation = [
+        { sender: 'client', text: "Olá, pastora! Gostaria de saber se você poderia ministrar em um culto especial em nossa igreja." },
+        { sender: 'pastor', text: "Olá! Que alegria receber seu convite 🙏 Posso sim. Qual seria o tema ou o foco do culto?" },
+        { sender: 'client', text: "Será um culto de mulheres no próximo sábado à tarde, gostaríamos de uma mensagem inspiradora sobre fé e perseverança." },
+        { sender: 'pastor', text: "Perfeito! Posso preparar uma mensagem edificante e incluir uma oração final para o momento." },
+        { sender: 'client', text: "Maravilha! Qual seria seu horário de chegada para se preparar antes do culto?" },
+        { sender: 'pastor', text: "Consigo chegar uma hora antes do início do culto, assim posso me ambientar e ajustar tudo para a pregação." },
+        { sender: 'client', text: "Excelente! Estamos muito felizes com sua participação." },
+        { sender: 'pastor', text: "Obrigada pela confiança 🙏 Que Deus abençoe nosso encontro!" }
+    ];
+
+    let conversationIndex = 1;
+
+    function addMessage(text, sender) {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message');
+        messageDiv.classList.add(sender === 'client' ? 'client-message' : 'pastor-message');
+        messageDiv.textContent = text;
+        chatBox.appendChild(messageDiv);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    window.onload = () => {
+        addMessage(conversation[0].text, conversation[0].sender);
+    };
+
+    function handleUserInput() {
+        if (conversationIndex < conversation.length) {
+            const msg = conversation[conversationIndex];
+            addMessage(msg.text, msg.sender);
+            conversationIndex++;
+        } else {
+            userInput.disabled = true;
+            sendButton.disabled = true;
+            userInput.placeholder = "Conversa finalizada.";
+        }
+    }
+
+    sendButton.addEventListener('click', handleUserInput);
+    userInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') handleUserInput();
+    });
+</script>
+
+</body>
+</html>
