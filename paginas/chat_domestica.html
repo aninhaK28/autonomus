@@ -27,7 +27,7 @@
             overflow: hidden;
         }
         .chat-header {
-            background-color: #ff9800;
+            background-color: #007bff;
             color: white;
             padding: 15px;
             border-top-left-radius: 10px;
@@ -50,12 +50,12 @@
             border-radius: 20px;
             line-height: 1.4;
         }
-        .client-message {
+        .contractor-message {
             background-color: #e2e2e2;
             align-self: flex-start;
         }
-        .maid-message {
-            background-color: #ff9800;
+        .worker-message {
+            background-color: #007bff;
             color: white;
             align-self: flex-end;
         }
@@ -72,7 +72,7 @@
             outline: none;
         }
         .chat-input button {
-            background-color: #ff9800;
+            background-color: #007bff;
             color: white;
             border: none;
             border-radius: 20px;
@@ -82,7 +82,7 @@
             transition: background-color 0.3s;
         }
         .chat-input button:hover {
-            background-color: #e68900;
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -104,38 +104,35 @@
     const userInput = document.getElementById('user-input');
     const sendButton = document.getElementById('send-button');
 
-    // Conversa pré-definida (cliente x doméstica)
+    // Conversa pré-definida
     const conversation = [
-        { sender: 'client', text: "Olá, vi seu perfil e gostaria de saber se você faz faxina por diária." },
-        { sender: 'maid', text: "Olá! Sim, faço sim. Pode me dizer o tamanho da casa ou apartamento?" },
-        { sender: 'client', text: "É um apartamento com 2 quartos, sala, cozinha e banheiro." },
-        { sender: 'maid', text: "Perfeito, consigo fazer a limpeza completa em um dia. Você gostaria de agendar quando?" },
-        { sender: 'client', text: "Pode ser na quinta-feira pela manhã." },
-        { sender: 'maid', text: "Quinta de manhã está ótimo. Costumo começar às 8h, pode ser?" },
-        { sender: 'client', text: "Pode sim. Qual o valor da diária?" },
-        { sender: 'maid', text: "O valor é R$150 pela faxina completa, incluindo materiais de limpeza." },
-        { sender: 'client', text: "Ótimo, está combinado então. Obrigada!" },
-        { sender: 'maid', text: "Eu que agradeço pela confiança. Até quinta-feira! 🧹✨" }
+        { sender: 'contractor', text: "Olá, tudo bem? Vi que você trabalha como doméstica, gostaria de saber se tem disponibilidade." },
+        { sender: 'worker', text: "Olá! Sim, tenho sim. Qual seria o serviço exatamente?" },
+        { sender: 'contractor', text: "Preciso de alguém para limpar a casa e organizar algumas coisas. É uma casa média, com 3 quartos." },
+        { sender: 'worker', text: "Entendi. Você gostaria que fosse uma limpeza completa, incluindo vidros e armários, ou apenas a manutenção básica?" },
+        { sender: 'contractor', text: "Seria a limpeza completa, por favor. Faz tempo que não consigo organizar tudo." },
+        { sender: 'worker', text: "Perfeito. Normalmente, para esse tipo de serviço, levo um dia. Posso já agendar para sexta-feira, tudo bem?" },
+        { sender: 'contractor', text: "Sexta-feira está ótimo! Quanto ficaria o valor?" },
+        { sender: 'worker', text: "O valor é R$ 180 para a faxina completa, já levando os produtos de limpeza. Pode ser?" },
+        { sender: 'contractor', text: "Pode sim. Combinado, muito obrigado!" },
+        { sender: 'worker', text: "Eu que agradeço a confiança. Nos vemos sexta-feira!" }
     ];
 
     let conversationIndex = 1;
 
-    // Função para adicionar mensagens
     function addMessage(text, sender) {
         const messageDiv = document.createElement('div');
         messageDiv.classList.add('message');
-        messageDiv.classList.add(sender === 'client' ? 'client-message' : 'maid-message');
+        messageDiv.classList.add(sender === 'contractor' ? 'contractor-message' : 'worker-message');
         messageDiv.textContent = text;
         chatBox.appendChild(messageDiv);
         chatBox.scrollTop = chatBox.scrollHeight;
     }
 
-    // Primeira mensagem aparece ao carregar
     window.onload = () => {
         addMessage(conversation[0].text, conversation[0].sender);
     };
 
-    // Função para exibir mensagens da conversa
     function handleUserInput() {
         if (conversationIndex < conversation.length) {
             const msg = conversation[conversationIndex];
