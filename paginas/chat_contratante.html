@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conversa com Pastora</title>
+    <title>Conversa com Liz</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -90,7 +90,7 @@
 
 <div class="chat-container">
     <div class="chat-header">
-        Conversa com Pastora
+        Conversa com Liz
     </div>
     <div class="chat-box" id="chat-box"></div>
     <div class="chat-input">
@@ -104,16 +104,15 @@
     const userInput = document.getElementById('user-input');
     const sendButton = document.getElementById('send-button');
 
-    // Conversa pré-definida (cliente x pastora)
+    // Nova conversa (worker começa)
     const conversation = [
-        { sender: 'client', text: "Olá, pastora! Gostaria de saber se você poderia ministrar em um culto especial em nossa igreja." },
-        { sender: 'worker', text: "Olá! Que alegria receber seu convite 🙏 Posso sim. Qual seria o tema ou o foco do culto?" },
-        { sender: 'client', text: "Será um culto de mulheres no próximo sábado à tarde, gostaríamos de uma mensagem inspiradora sobre fé e perseverança." },
-        { sender: 'worker', text: "Perfeito! Posso preparar uma mensagem edificante e incluir uma oração final para o momento." },
-        { sender: 'client', text: "Maravilha! Qual seria seu horário de chegada para se preparar antes do culto?" },
-        { sender: 'worker', text: "Consigo chegar uma hora antes do início do culto, assim posso me ambientar e ajustar tudo para a pregação." },
-        { sender: 'client', text: "Excelente! Estamos muito felizes com sua participação." },
-        { sender: 'worker', text: "Obrigada pela confiança 🙏 Que Deus abençoe nosso encontro!" }
+        { sender: 'worker', text: "Olá Liz, tudo bem? Posso confirmar o horário para ir até sua casa consertar as grades do seu portão?" },
+        { sender: 'client', text: "Oi! Tudo certo, obrigada. Qual horário você pensa em vir?" },
+        { sender: 'worker', text: "Consigo passar amanhã à tarde, por volta das 14h. Funciona para você?" },
+        { sender: 'client', text: "Perfeito, estarei em casa nesse horário." },
+        { sender: 'worker', text: "Ótimo! Vou levar todas as ferramentas necessárias para o conserto." },
+        { sender: 'client', text: "Muito obrigada, até amanhã então!" },
+        { sender: 'worker', text: "Até amanhã! Tenha uma ótima noite." }
     ];
 
     let conversationIndex = 1;
@@ -128,6 +127,7 @@
     }
 
     window.onload = () => {
+        // Primeiro mostra a mensagem azul
         addMessage(conversation[0].text, conversation[0].sender);
     };
 
