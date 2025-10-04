@@ -287,8 +287,13 @@
                     </li>
                 </ul>
             </div>
-            <button class="chat-button">CONVERSAR</button>
+            <button class="chat-button" id="btnConversar">CONVERSAR</button>
         </main>
     </div>
+<script>
+    document.getElementById("btnConversar").addEventListener("click", () => {
+    window.location.href = "./chat_trabalhador.html";
+  });
+</script>
 </body>
 </html>
