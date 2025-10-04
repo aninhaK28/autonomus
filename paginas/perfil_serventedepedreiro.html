@@ -16,7 +16,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-color: #7d5a3c; /* tom terroso */
+            background-color: #366799; /* Fundo azul da babá */
             box-sizing: border-box;
         }
         
@@ -41,7 +41,7 @@
         }
 
         .header {
-            background-color: #f3ede9;
+            background-color: #f0f0f0; /* cinza claro */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -60,7 +60,7 @@
 
         .arrow-back, .menu-icon {
             font-size: 1.3em;
-            color: #5a3c24;
+            color: #ebc109; /* amarelo */
         }
 
         .profile-card {
@@ -76,7 +76,7 @@
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            background-color: #5a3c24;
+            background-color: #ffc107; /* amarelo */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -107,7 +107,7 @@
         }
 
         .status-tag {
-            background-color: #5a3c24;
+            background-color: #ffc107; /* amarelo */
             color: #fff;
             padding: 5px 10px;
             border-radius: 5px;
@@ -125,7 +125,7 @@
         }
 
         .details-box, .section-box {
-            background-color: #f5f2ef;
+            background-color: #e0e6ec; /* cinza claro */
             border-radius: 10px;
             padding: 20px;
             width: calc(100% - 40px);
@@ -146,7 +146,7 @@
             color: #333;
             margin-top: 0;
             margin-bottom: 15px;
-            border-bottom: 2px solid #5a3c24;
+            border-bottom: 2px solid #ffc107;
             padding-bottom: 5px;
         }
         
@@ -162,7 +162,7 @@
         
         .review-author {
             font-weight: bold;
-            color: #5a3c24;
+            color: #366799; /* azul */
             margin-bottom: 5px;
         }
 
@@ -181,7 +181,7 @@
         }
 
         .chat-button {
-            background-color: #5a3c24;
+            background-color: #366799; /* azul */
             color: #fff;
             padding: 15px 30px;
             border: none;
@@ -197,18 +197,16 @@
         }
 
         .chat-button:hover {
-            background-color: #3b2919;
+            background-color: #2b5275; /* azul escuro */
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header class="header">
-
             <a href="./inicial.html">
                 <i class="fas fa-arrow-left arrow-back"></i>
             </a>
-
             <h1>Perfil</h1>
             <i class="fas fa-bars menu-icon"></i>
         </header>
@@ -281,8 +279,8 @@
 
 <script>
     document.getElementById("btnConversar").addEventListener("click", () => {
-    window.location.href = "./chat_servente.html";
-  });
+        window.location.href = "./chat_servente.html";
+    });
 </script>
 </body>
 </html>
