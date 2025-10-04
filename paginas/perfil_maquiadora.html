@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil</title>
+    <title>Perfil de Maquiadora</title>
     
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -16,7 +16,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-color: #8e3a73;
+            background-color: #366799; /* Fundo azul */
             box-sizing: border-box;
         }
         
@@ -41,7 +41,7 @@
         }
 
         .header {
-            background-color: #f8f0f5;
+            background-color: #f0f0f0; /* Barra superior cinza claro */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -60,7 +60,7 @@
 
         .arrow-back, .menu-icon {
             font-size: 1.3em;
-            color: #d63384;
+            color: #ebc109; /* Amarelo */
         }
 
         .profile-card {
@@ -76,7 +76,7 @@
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            background-color: #d63384;
+            background-color: #ffc107; /* Amarelo */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -107,7 +107,7 @@
         }
 
         .status-tag {
-            background-color: #d63384;
+            background-color: #ffc107; /* Amarelo */
             color: #fff;
             padding: 5px 10px;
             border-radius: 5px;
@@ -116,16 +116,16 @@
         }
 
         .stars {
-            color: #ffc107;
+            color: #ffc107; /* Amarelo */
             font-size: 1.2em;
         }
 
         .stars .far.fa-star {
-            color: #ccc;
+            color: #ccc; /* Estrela vazia cinza */
         }
 
         .details-box, .section-box {
-            background-color: #f3e6f0;
+            background-color: #e0e6ec; /* Fundo cinza claro */
             border-radius: 10px;
             padding: 20px;
             width: calc(100% - 40px);
@@ -146,7 +146,7 @@
             color: #333;
             margin-top: 0;
             margin-bottom: 15px;
-            border-bottom: 2px solid #d63384;
+            border-bottom: 2px solid #ffc107;
             padding-bottom: 5px;
         }
         
@@ -162,7 +162,7 @@
         
         .review-author {
             font-weight: bold;
-            color: #8e3a73;
+            color: #366799; /* Azul */
             margin-bottom: 5px;
         }
 
@@ -181,7 +181,7 @@
         }
 
         .chat-button {
-            background-color: #d63384;
+            background-color: #366799; /* Azul */
             color: #fff;
             padding: 15px 30px;
             border: none;
@@ -197,18 +197,16 @@
         }
 
         .chat-button:hover {
-            background-color: #a22561;
+            background-color: #2b5275; /* Azul escuro */
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header class="header">
-
             <a href="./inicial.html">
                 <i class="fas fa-arrow-left arrow-back"></i>
             </a>
-
             <h1>Perfil</h1>
             <i class="fas fa-bars menu-icon"></i>
         </header>
@@ -281,8 +279,8 @@
 
 <script>
     document.getElementById("btnConversar").addEventListener("click", () => {
-    window.location.href = "./chat_maquiadora.html";
-  });
+        window.location.href = "./chat_maquiadora.html";
+    });
 </script>
 </body>
 </html>
