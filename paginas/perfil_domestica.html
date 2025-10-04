@@ -1,288 +1,285 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil</title>
-    
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #4c7a65; /* Verde elegante */
-            box-sizing: border-box;
-        }
-        
-        .foto-perfil {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perfil</title>
 
-        .container {
-            background-color: #fff;
-            width: 100%;
-            max-width: 400px;
-            border-radius: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            padding-bottom: 20px;
-            box-sizing: border-box;
-        }
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-        .header {
-            background-color: #e9f4f0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            color: #333;
-            font-size: 1.2em;
-            border-top-left-radius: 20px;
-            border-top-right-radius: 20px;
-            box-sizing: border-box;
-        }
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4; /* mesmo fundo do perfil da babá */
+    box-sizing: border-box;
+}
 
-        .header h1 {
-            margin: 0;
-            font-size: 1.1em;
-        }
+.foto-perfil {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
 
-        .arrow-back, .menu-icon {
-            font-size: 1.3em;
-            color: #2f5d46;
-        }
+.container {
+    background-color: #fff;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+}
 
-        .profile-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-            text-align: center;
-            box-sizing: border-box;
-        }
+.header {
+    background-color: #f0f0f0; /* cinza claro */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    color: #333;
+    font-size: 1.2em;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-sizing: border-box;
+}
 
-        .profile-image-container {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background-color: #2f5d46;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 15px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+.header h1 {
+    margin: 0;
+    font-size: 1.1em;
+}
 
-        .username {
-            color: #666;
-            font-size: 0.9em;
-            margin-bottom: 5px;
-        }
+.arrow-back, .menu-icon {
+    font-size: 1.3em;
+    color: #ebc109; /* amarelo do perfil da babá */
+}
 
-        .name {
-            font-size: 1.8em;
-            color: #333;
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-weight: bold;
-        }
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
 
-        .status-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
+.profile-image-container {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #ffc107; /* amarelo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-        .status-tag {
-            background-color: #2f5d46;
-            color: #fff;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.8em;
-            font-weight: bold;
-        }
+.username {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
 
-        .stars {
-            color: #ffc107;
-            font-size: 1.2em;
-        }
+.name {
+    font-size: 1.8em;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
 
-        .stars .far.fa-star {
-            color: #ccc;
-        }
+.status-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
 
-        .details-box, .section-box {
-            background-color: #f2f7f5;
-            border-radius: 10px;
-            padding: 20px;
-            width: calc(100% - 40px);
-            text-align: left;
-            margin-bottom: 25px;
-            box-sizing: border-box;
-        }
+.status-tag {
+    background-color: #ffc107; /* amarelo */
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    font-weight: bold;
+}
 
-        .details-box p {
-            margin: 5px 0;
-            color: #333;
-            font-size: 0.95em;
-            line-height: 1.4;
-        }
-        
-        .section-box h2 {
-            font-size: 1.2em;
-            color: #333;
-            margin-top: 0;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #2f5d46;
-            padding-bottom: 5px;
-        }
-        
-        .curriculum-list, .reviews-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .curriculum-list li, .review-item {
-            margin-bottom: 15px;
-        }
-        
-        .review-author {
-            font-weight: bold;
-            color: #2f5d46;
-            margin-bottom: 5px;
-        }
+.stars {
+    color: #ffc107;
+    font-size: 1.2em;
+}
 
-        .review-text {
-            color: #555;
-            font-style: italic;
-        }
+.stars .far.fa-star {
+    color: #ccc;
+}
 
-        .bio-title {
-            font-weight: bold;
-            margin-top: 15px;
-        }
+.details-box, .section-box {
+    background-color: #e0e6ec; /* cinza claro */
+    border-radius: 10px;
+    padding: 20px;
+    width: calc(100% - 40px);
+    text-align: left;
+    margin-bottom: 25px;
+    box-sizing: border-box;
+}
 
-        .bio-text {
-            font-style: italic;
-        }
+.details-box p {
+    margin: 5px 0;
+    color: #333;
+    font-size: 0.95em;
+    line-height: 1.4;
+}
 
-        .chat-button {
-            background-color: #2f5d46;
-            color: #fff;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 30px;
-            font-size: 1.1em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-top: 20px;
-            width: 80%;
-            max-width: 300px;
-            align-self: center;
-        }
+.section-box h2 {
+    font-size: 1.2em;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ffc107; /* amarelo */
+    padding-bottom: 5px;
+}
 
-        .chat-button:hover {
-            background-color: #234233;
-        }
-    </style>
+.curriculum-list, .reviews-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.curriculum-list li, .review-item {
+    margin-bottom: 15px;
+}
+
+.review-author {
+    font-weight: bold;
+    color: #366799; /* azul do perfil da babá */
+    margin-bottom: 5px;
+}
+
+.review-text {
+    color: #555;
+    font-style: italic;
+}
+
+.bio-title {
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.bio-text {
+    font-style: italic;
+}
+
+.chat-button {
+    background-color: #366799; /* azul */
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    width: 80%;
+    max-width: 300px;
+    align-self: center;
+}
+
+.chat-button:hover {
+    background-color: #2b5275; /* azul escuro */
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
+<div class="container">
+<header class="header">
+    <a href="./inicial.html"><i class="fas fa-arrow-left arrow-back"></i></a>
+    <h1>Perfil</h1>
+    <i class="fas fa-bars menu-icon"></i>
+</header>
 
-            <a href="./inicial.html">
-                <i class="fas fa-arrow-left arrow-back"></i>
-            </a>
+<main class="profile-card">
+    <div class="profile-image-container">
+        <img class="foto-perfil" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Raul_Gil_%28cropped%29.jpg/250px-Raul_Gil_%28cropped%29.jpg" alt="Foto de servente de pedreiro">
+    </div>
+    <p class="username">@MaoNaMassaJP</p>
+    <h2 class="name">João Pereira</h2>
 
-            <h1>Perfil</h1>
-            <i class="fas fa-bars menu-icon"></i>
-        </header>
+    <div class="status-container">
+        <span class="status-tag">SERVENTE DE PEDREIRO</span>
+        <div class="stars">
+            <i class="fas fa-star falled"></i>
+            <i class="fas fa-star falled"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+        </div>
+    </div>
 
-        <main class="profile-card">
-            <div class="profile-image-container">
-                <img class="foto-perfil" src="https://folhaextra.com/images/noticias/34071/092fd98bbfa0007baebdbb4f14dcab02.webp" alt="Foto da doméstica">
-            </div>
-            <p class="username">@Claudinha09</p>
-            <h2 class="name">Claudia Silva</h2>
+    <div class="details-box">
+        <p>Ocupação: Servente de pedreiro</p>
+        <p>Idade: 58</p>
+        <p>Tempo de experiência: 29 anos</p>
+        <p class="bio-title">Biografia:</p>
+        <p class="bio-text">"Trabalho duro, sempre disposto a aprender mais. Posso não ser o mais rápido, mas faço questão de cumprir o que prometo."</p>
+    </div>
 
-            <div class="status-container">
-                <span class="status-tag">DOMÉSTICA</span>
+    <div class="section-box curriculum">
+        <h2>Currículo</h2>
+        <ul class="curriculum-list">
+            <li><p><strong>Serviços:</strong> Preparação de massa, transporte de materiais, auxílio em pequenas construções.</p></li>
+            <li><p><strong>Especialidade:</strong> Apoio em obras residenciais.</p></li>
+            <li><p><strong>Habilidades:</strong> Força física, disposição, trabalho em equipe.</p></li>
+        </ul>
+    </div>
+
+    <div class="section-box reviews">
+        <h2>Avaliações</h2>
+        <ul class="reviews-list">
+            <li class="review-item">
+                <div class="review-author">Ricardo S.</div>
+                <div class="stars">
+                    <i class="fas fa-star falled"></i>
+                    <i class="fas fa-star falled"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p class="review-text">"Boa vontade não faltou, mas deixou muita sujeira no canteiro e precisou de orientação constante."</p>
+            </li>
+            <li class="review-item">
+                <div class="review-author">Mariana L.</div>
                 <div class="stars">
                     <i class="fas fa-star falled"></i>
                     <i class="fas fa-star falled"></i>
                     <i class="fas fa-star falled"></i>
-                    <i class="fas fa-star falled"></i>
+                    <i class="far fa-star"></i>
                     <i class="far fa-star"></i>
                 </div>
-            </div>
-
-            <div class="details-box">
-                <p>Ocupação: Doméstica e diarista</p>
-                <p>Idade: 42</p>
-                <p>Tempo de experiência: 15 anos</p>
-                <p class="bio-title">Biografia:</p>
-                <p class="bio-text">"Organização, confiança e cuidado são os pilares do meu trabalho. Gosto de transformar ambientes em lugares mais leves e aconchegantes."</p>
-            </div>
-
-            <div class="section-box curriculum">
-                <h2>Currículo</h2>
-                <ul class="curriculum-list">
-                    <li><p><strong>Serviços:</strong> Limpeza geral, organização de ambientes, lavagem e passagem de roupas.</p></li>
-                    <li><p><strong>Especialidade:</strong> Organização de cozinhas e armários.</p></li>
-                    <li><p><strong>Habilidades:</strong> Detalhista, pontual e comunicativa.</p></li>
-                </ul>
-            </div>
-
-            <div class="section-box reviews">
-                <h2>Avaliações</h2>
-                <ul class="reviews-list">
-                    <li class="review-item">
-                        <div class="review-author">Fernanda R.</div>
-                        <div class="stars">
-                            <i class="fas fa-star falled"></i>
-                            <i class="fas fa-star falled"></i>
-                            <i class="fas fa-star falled"></i>
-                            <i class="fas fa-star falled"></i>
-                            <i class="far fa-star"></i>
-                        </div>
-                        <p class="review-text">"Muito caprichosa, deixou minha casa impecável. Só não dei 5 estrelas porque atrasou um pouquinho."</p>
-                    </li>
-                    <li class="review-item">
-                        <div class="review-author">Carlos M.</div>
-                        <div class="stars">
-                            <i class="fas fa-star falled"></i>
-                            <i class="fas fa-star falled"></i>
-                            <i class="fas fa-star falled"></i>
-                            <i class="fas fa-star falled"></i>
-                            <i class="fas fa-star falled"></i>
-                        </div>
-                        <p class="review-text">"Excelente profissional! Muito dedicada, recomendo demais."</p>
-                    </li>
-                </ul>
-            </div>
-            <button class="chat-button" id="btnConversar">CONVERSAR</button>
-        </main>
+                <p class="review-text">"Trabalhou direitinho, mas atrasou alguns dias. Ainda assim, é esforçado e honesto."</p>
+            </li>
+        </ul>
     </div>
 
+    <button class="chat-button" id="btnConversar">CONVERSAR</button>
+</main>
+</div>
+
 <script>
-    document.getElementById("btnConversar").addEventListener("click", () => {
-    window.location.href = "./chat_domestica.html";
-  });
+document.getElementById("btnConversar").addEventListener("click", () => {
+    window.location.href = "./chat_servente.html";
+});
 </script>
 </body>
 </html>
