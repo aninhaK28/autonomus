@@ -104,10 +104,11 @@
     const userInput = document.getElementById('user-input');
     const sendButton = document.getElementById('send-button');
 
-    // Nova conversa (worker começa)
+    // Conversa invertida (client começa)
     const conversation = [
-        { sender: 'worker', text: "Olá Liz, tudo bem? Posso confirmar o horário para ir até sua casa consertar as grades do seu portão?" },
-        { sender: 'client', text: "Oi! Tudo certo, obrigada. Qual horário você pensa em vir?" },
+        { sender: 'client', text: "Olá, tudo bem? Recebi sua mensagem sobre o conserto das grades." },
+        { sender: 'worker', text: "Oi Liz, tudo ótimo! Posso confirmar o horário para ir até sua casa consertar as grades do seu portão?" },
+        { sender: 'client', text: "Pode sim! Qual horário você pensa em vir?" },
         { sender: 'worker', text: "Consigo passar amanhã à tarde, por volta das 14h. Funciona para você?" },
         { sender: 'client', text: "Perfeito, estarei em casa nesse horário." },
         { sender: 'worker', text: "Ótimo! Vou levar todas as ferramentas necessárias para o conserto." },
@@ -127,7 +128,7 @@
     }
 
     window.onload = () => {
-        // Primeiro mostra a mensagem azul
+        // Primeiro mostra a mensagem cinza (client)
         addMessage(conversation[0].text, conversation[0].sender);
     };
 
