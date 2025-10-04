@@ -27,7 +27,7 @@
             overflow: hidden;
         }
         .chat-header {
-            background-color: #366799;
+            background-color: #00796b;
             color: white;
             padding: 15px;
             border-top-left-radius: 10px;
@@ -50,12 +50,12 @@
             border-radius: 20px;
             line-height: 1.4;
         }
-        .contractor-message {
+        .client-message {
             background-color: #e2e2e2;
             align-self: flex-start;
         }
-        .worker-message {
-            background-color: #366799;
+        .electrician-message {
+            background-color: #00796b;
             color: white;
             align-self: flex-end;
         }
@@ -72,8 +72,8 @@
             outline: none;
         }
         .chat-input button {
-            background-color: #ffc107;
-            color: #000;
+            background-color: #00796b;
+            color: white;
             border: none;
             border-radius: 20px;
             padding: 10px 20px;
@@ -82,7 +82,7 @@
             transition: background-color 0.3s;
         }
         .chat-input button:hover {
-            background-color: #e6ac00;
+            background-color: #004d40;
         }
     </style>
 </head>
@@ -104,33 +104,38 @@
     const userInput = document.getElementById('user-input');
     const sendButton = document.getElementById('send-button');
 
-    // Conversa pré-definida com Eletricista
+    // Conversa pré-definida (cliente x eletricista)
     const conversation = [
-        { sender: 'contractor', text: "Olá, vi seu perfil e preciso de ajuda com a instalação elétrica da minha casa." },
-        { sender: 'worker', text: "Olá! Claro, posso ajudar. Qual tipo de serviço você precisa exatamente?" },
-        { sender: 'contractor', text: "Preciso trocar a fiação da sala e instalar algumas tomadas novas." },
-        { sender: 'worker', text: "Entendido. Posso ir até sua casa avaliar e te passar um orçamento detalhado." },
-        { sender: 'contractor', text: "Perfeito! Você tem disponibilidade amanhã de manhã?" },
-        { sender: 'worker', text: "Tenho sim. Podemos agendar às 9h da manhã." },
-        { sender: 'contractor', text: "Ótimo, combinado! Muito obrigado." },
-        { sender: 'worker', text: "Eu que agradeço. Até amanhã!" }
+        { sender: 'client', text: "Olá, vi seu perfil e gostaria de saber se você faz reparos elétricos residenciais." },
+        { sender: 'electrician', text: "Olá! Sim, faço sim. Qual o problema que você está enfrentando?" },
+        { sender: 'client', text: "Algumas tomadas da sala pararam de funcionar e também uma lâmpada não acende mais." },
+        { sender: 'electrician', text: "Entendi. Pode ser problema no disjuntor ou na fiação. Posso passar aí para verificar." },
+        { sender: 'client', text: "Pode sim. Você teria disponibilidade amanhã de manhã?" },
+        { sender: 'electrician', text: "Tenho sim, posso chegar por volta das 9h. Esse horário serve?" },
+        { sender: 'client', text: "Serve perfeitamente. Quanto fica a visita?" },
+        { sender: 'electrician', text: "A visita técnica custa R$80, e o conserto depende do que for necessário trocar." },
+        { sender: 'client', text: "Certo, pode vir amanhã então. Obrigada!" },
+        { sender: 'electrician', text: "Combinado, até amanhã! 🔌⚡" }
     ];
 
     let conversationIndex = 1;
 
+    // Função para adicionar mensagens
     function addMessage(text, sender) {
         const messageDiv = document.createElement('div');
         messageDiv.classList.add('message');
-        messageDiv.classList.add(sender === 'contractor' ? 'contractor-message' : 'worker-message');
+        messageDiv.classList.add(sender === 'client' ? 'client-message' : 'electrician-message');
         messageDiv.textContent = text;
         chatBox.appendChild(messageDiv);
         chatBox.scrollTop = chatBox.scrollHeight;
     }
 
+    // Primeira mensagem aparece ao carregar
     window.onload = () => {
         addMessage(conversation[0].text, conversation[0].sender);
     };
 
+    // Função para exibir mensagens da conversa
     function handleUserInput() {
         if (conversationIndex < conversation.length) {
             const msg = conversation[conversationIndex];
