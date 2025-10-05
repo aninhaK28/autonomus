@@ -1,135 +1,203 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil do Trabalhador</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            background-color: #40a4e7;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .login-container {
-            background-color: #ffffff;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 400px;
-        }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: #555;
-        }
-
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #d8c621;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-        
-        /* Estilo para o campo de arquivo (file) */
-        .form-group input[type="file"] {
-            border: 1px solid #ebe858;
-            padding: 8px;
-            cursor: pointer;
-        }
-
-        .btn {
-            width: 100%;
-            padding: 12px;
-            border: none;
-            background-color: #007bff;
-            color: #fff;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 10px;
-        }
-
-        .btn:hover {
-            background-color: #0056b3;
-        }
-
-        .link-cadastro {
-            display: block;
-            text-align: center;
-            margin-top: 15px;
-            color: #007bff;
-            text-decoration: none;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Perfil do Trabalhador</title>
+  <style>
+    :root {
+      --bg: #40a4e7;
+      --card: #ffffff;
+      --accent: #1f6feb;
+      --muted: #6b7280;
+    }
+    body {
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: var(--bg);
+      margin: 0;
+      padding: 32px;
+      color: #111;
+    }
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 22px;
+      text-align: center;
+    }
+    p.lead {
+      margin: 0 0 20px;
+      color: var(--muted);
+      text-align: center;
+    }
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    label {
+      font-size: 13px;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 6px;
+    }
+    input[type=text],
+    input[type=email],
+    input[type=password],
+    input[type=file],
+    textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #e6e9ef;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    .full {
+      grid-column: 1 / -1;
+    }
+    .actions {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      margin-top: 16px;
+      grid-column: 1 / -1;
+    }
+    button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+    button.secondary {
+      background: #fdfbfb;
+      color: var(--accent);
+    }
+    .output {
+      white-space: pre-wrap;
+      background: #0f1724;
+      color: #324d75;
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 12px;
+      font-family: monospace;
+      grid-column: 1 / -1;
+    }
+    @media (max-width: 640px) {
+      form {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <div class="card">
+      <h1>Perfil do Trabalhador</h1>
+      <p class="lead">Preencha os dados para criar seu perfil profissional e mostrar seus serviços.</p>
 
-<div class="login-container">
-    <h2>Criar Perfil de Trabalhador</h2>
-    <form action="./inicial.html" method="get" enctype="multipart/form-data"> <!--Mude o "action" para o caminho certo caso não esteja funcionando-->
-        
-        <div class="form-group">
-            <label for="nome">Nome Completo</label>
-            <input type="text" id="nome" name="nome" required>
+      <form id="trabalhadorForm" autocomplete="on" enctype="multipart/form-data">
+        <div>
+          <label for="nome">Nome Completo</label>
+          <input id="nome" name="nome" type="text" placeholder="Ex: João Pereira" required />
         </div>
 
-        <div class="form-group">
-            <label for="email">E-mail</label>
-            <input type="email" id="email" name="email" required>
+        <div>
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email" placeholder="exemplo@email.com" required />
         </div>
 
-        <div class="form-group">
-            <label for="senha">Senha</label>
-            <input type="password" id="senha" name="senha" required>
+        <div>
+          <label for="senha">Senha</label>
+          <input id="senha" name="senha" type="password" required />
         </div>
 
-        <div class="form-group">
-            <label for="trabalho">Qual trabalho eu ofereço?</label>
-            <textarea id="trabalho" name="trabalho" placeholder="Ex: 'Sou pedreiro com 10 anos de experiência, especialista em acabamento e alvenaria...'" required></textarea>
-        </div>
-        
-        <div class="form-group">
-            <label for="fotos">Fotos de trabalhos (opcional)</label>
-            <input type="file" id="fotos" name="fotos[]" multiple>
+        <div class="full">
+          <label for="trabalho">Qual trabalho eu ofereço?</label>
+          <textarea id="trabalho" name="trabalho" placeholder="Ex: Sou pedreiro com 10 anos de experiência, especialista em acabamento e alvenaria..." required></textarea>
         </div>
 
-        <div class="form-group">
-            <label for="curriculo">Carregar currículo (opcional)</label>
-            <input type="file" id="curriculo" name="curriculo" accept=".pdf,.doc,.docx">
+        <div class="full">
+          <label for="fotos">Fotos de trabalhos (opcional)</label>
+          <input id="fotos" name="fotos[]" type="file" multiple />
         </div>
 
-        <div class="form-group">
-            <label for="formacoes">Formações e qualificações</label>
-            <textarea id="formacoes" name="formacoes" placeholder="Ex: 'Curso Técnico em Elétrica, Certificação em Solda...'" required></textarea>
+        <div class="full">
+          <label for="curriculo">Carregar currículo (opcional)</label>
+          <input id="curriculo" name="curriculo" type="file" accept=".pdf,.doc,.docx" />
         </div>
 
-        <button type="submit" class="btn">Cadastrar Perfil</button>
+        <div class="full">
+          <label for="formacoes">Formações e qualificações</label>
+          <textarea id="formacoes" name="formacoes" placeholder="Ex: Curso Técnico em Elétrica, Certificação em Solda..." required></textarea>
+        </div>
 
-    </form>
-    
-</div>
+        <div class="actions">
+          <button type="button" id="salvar">Cadastrar Perfil</button>
+          <button type="button" id="limpar" class="secondary">Limpar</button>
+        </div>
 
+        <div class="output" id="resultado" aria-live="polite" hidden></div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('trabalhadorForm');
+    const salvar = document.getElementById('salvar');
+    const limpar = document.getElementById('limpar');
+    const resultado = document.getElementById('resultado');
+
+    function getFormData() {
+      const data = new FormData(form);
+      const obj = {};
+      for (const [k, v] of data.entries()) obj[k] = v;
+      return obj;
+    }
+
+    salvar.addEventListener('click', () => {
+      if (!form.reportValidity()) return;
+
+      const dados = getFormData();
+      resultado.hidden = false;
+      resultado.textContent = JSON.stringify(dados, null, 2);
+
+      try {
+        localStorage.setItem('perfilTrabalhador', JSON.stringify(dados));
+      } catch (e) {}
+
+      window.location.href = "./inicial.html";
+    });
+
+    limpar.addEventListener('click', () => {
+      form.reset();
+      resultado.hidden = true;
+      resultado.textContent = '';
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      try {
+        const saved = localStorage.getItem('perfilTrabalhador');
+        if (saved) {
+          const obj = JSON.parse(saved);
+          for (const k in obj) if (form.elements[k]) form.elements[k].value = obj[k];
+        }
+      } catch (e) {}
+    });
+  </script>
 </body>
 </html>
