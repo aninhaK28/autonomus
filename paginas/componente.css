@@ -1,8 +1,14 @@
 button {
-  background: #1f6feb;
+  background-color: #1f6feb;
   color: #fff;
-  border: none;
   padding: 10px 14px;
+  border: none;
   border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: bold;
   cursor: pointer;
+  margin-top: 20px;
+  width: 80%;
+  max-width: 300px;
+  align-self: center;
 }
