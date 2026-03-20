@@ -106,7 +106,7 @@
       resultado.hidden = false
       resultado.textContent = JSON.stringify(dados, null, 2)
 
-      try{ localStorage.setItem('perfilContratante', JSON.stringify(dados))
+      try{ localStorage.setItem('perfil_contratante', JSON.stringify(dados))
        }catch(e){}
 
       window.location.href = "./inicial.html"  
@@ -118,7 +118,7 @@
 
     document.addEventListener('DOMContentLoaded', ()=>{
       try{
-        const saved = localStorage.getItem('perfilContratante')
+        const saved = localStorage.getItem('perfil_contratante')
         if(saved){
           const obj = JSON.parse(saved)
           for(const k in obj) if(form.elements[k]) form.elements[k].value = obj[k]
